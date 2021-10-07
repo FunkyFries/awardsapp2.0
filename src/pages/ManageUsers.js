@@ -60,7 +60,7 @@ const ManageUsers = () => {
   }
 
   function addUser(user) {
-    firebase.database().ref(`users/${user.userId}`).set({
+    firebase.database().ref(`users/${user.name}`).set({
       name: user.name,
       email: user.email,
       profile_picture: user.imageUrl,
