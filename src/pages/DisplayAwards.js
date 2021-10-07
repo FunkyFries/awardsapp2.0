@@ -33,7 +33,7 @@ if (moment().isBefore("2020-11-20")) {
   currentQuarter = "Fourth Quarter";
 }
 
-const DisplayAwards = ({ user }) => {
+const DisplayAwards = ({ userName }) => {
   const [printThreeR, setPrintThreeR] = useState(true);
   const [printAllIn, setPrintAllIn] = useState(true);
   const [printOutstanding, setPrintOutstanding] = useState(true);
@@ -43,8 +43,7 @@ const DisplayAwards = ({ user }) => {
   const [printAR, setPrintAR] = useState(true);
   const [printAwardsTable, setPrintAwardsTable] = useState(false);
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
-
-  console.log(user);
+  const [userInfo, setUserInfo] = useState();
 
   const teachers = ["Test1", "Test2", "Test3"];
   const specialists = ["Bob"];
@@ -61,7 +60,12 @@ const DisplayAwards = ({ user }) => {
         console.log(childNodes);
       });
     });
-  }, []);
+    let user;
+    user = firebase.database().ref(`users/${userName}`);
+    user.on("value", function (snapshot) {
+      setUserInfo(snapshot.val());
+    });
+  }, [userName]);
 
   const compare = (sortProperty) => (a, b) => {
     if (a[sortProperty] < b[sortProperty]) {
@@ -438,7 +442,7 @@ const DisplayAwards = ({ user }) => {
       ) : null}
       <BackgroundDiv className={printAwardsTable ? "" : "d-print-none"}>
         <DisplayAwardsContainer>
-          {user === "Admin" ? (
+          {userInfo.role === "admin" ? (
             <PrintFormContainer>
               <Form
                 style={{

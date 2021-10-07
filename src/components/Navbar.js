@@ -5,7 +5,8 @@ import Nav from "react-bootstrap/Nav";
 import firebase from "firebase/app";
 import "firebase/auth";
 
-const NavBar = ({ role }) => {
+const NavBar = ({ user }) => {
+  console.log(user);
   function signOut() {
     firebase
       .auth()
@@ -30,7 +31,7 @@ const NavBar = ({ role }) => {
           <Nav.Link href="/awards">Awards</Nav.Link>
           <Nav.Link href="/writeups">Writeups</Nav.Link>
           <Nav.Link href="/displayawards">Awards Table</Nav.Link>
-          {role === "admin" ? (
+          {user === "admin" ? (
             <Nav.Link href="/manageusers">Manage Users</Nav.Link>
           ) : null}
           <Nav.Link href="#logout" onClick={signOut}>
