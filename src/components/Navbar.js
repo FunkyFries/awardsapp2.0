@@ -6,7 +6,6 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 const NavBar = ({ user }) => {
-  console.log(user);
   function signOut() {
     firebase
       .auth()

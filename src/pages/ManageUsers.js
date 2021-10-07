@@ -23,6 +23,7 @@ const ManageUsers = () => {
   const [arrayOfUsers, setArrayOfUsers] = useState([]);
 
   function addStudent(student) {
+    console.log(student);
     firebase
       .database()
       .ref(`classroom/${student.classroom}/${student.id}`)
