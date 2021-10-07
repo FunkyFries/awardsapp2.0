@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import firebase from "firebase/app";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -48,8 +49,7 @@ const NewStudentForm = ({ addStudent }) => {
         id: newStudentId,
       });
       setValidated(false);
-      setNewStudentName("");
-      setNewStudentTeacher("");
+      setNewStudentClassroom("");
       setNewStudentImage("");
       setCreatingStudent(false);
     }
@@ -109,8 +109,8 @@ const NewStudentForm = ({ addStudent }) => {
               <Form.Label>Teacher</Form.Label>
               <Form.Control
                 required
-                value={newStudentTeacher}
-                onChange={(e) => setNewStudentTeacher(e.target.value)}
+                value={newStudentClassroom}
+                onChange={(e) => setNewStudentClassroom(e.target.value)}
               ></Form.Control>
               <Form.Control.Feedback type="invalid">
                 Please select a teacher.
