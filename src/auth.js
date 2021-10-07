@@ -1,4 +1,3 @@
-import firebase from "firebase/app";
 import "firebase/auth";
 
 // export const firebaseConfig = {
@@ -21,14 +20,4 @@ export const firebaseConfig = {
   messagingSenderId: "837275336172",
   appId: "1:837275336172:web:1d9dd710e24cf8f3d154c9",
   measurementId: "G-53PV2DD2R0",
-};
-
-export const SignOut = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((e) => console.log(e.message));
 };

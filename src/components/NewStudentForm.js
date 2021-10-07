@@ -6,29 +6,6 @@ import firebase from "firebase/app";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-function addStudent(student) {
-  firebase.database().ref(`classroom/${student.classroom}/${student.id}`).set({
-    id: student.id,
-    name: student.name,
-    classroom: student.classroom,
-    imageUrl: student.imageUrl,
-    spiritualTheme: false,
-    outstandingAchievement: false,
-    wowAward: false,
-    cougarCommunityService: false,
-    communityServiceChosenBy: "",
-    ccsWriteup: "",
-    terrificKid: false,
-    terrificKidChosenBy: "",
-    terrificKidWriteup: "",
-    threeR: "",
-    threeRWriteup: "",
-    acceleratedReader: false,
-    words: 0,
-    pastAwards: [],
-  });
-}
-
 const NewStudentForm = ({ addStudent }) => {
   const [creatingStudent, setCreatingStudent] = useState(false);
   const [newStudentName, setNewStudentName] = useState("");
@@ -47,6 +24,9 @@ const NewStudentForm = ({ addStudent }) => {
       evt.stopPropagation();
       addStudent({
         id: newStudentId,
+        name: newStudentName,
+        classroom: newStudentClassroom,
+        imageUrl: newStudentImage,
       });
       setValidated(false);
       setNewStudentClassroom("");

@@ -43,7 +43,7 @@ const DisplayAwards = ({ userName }) => {
   const [printAR, setPrintAR] = useState(true);
   const [printAwardsTable, setPrintAwardsTable] = useState(false);
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState({});
 
   const teachers = ["Test1", "Test2", "Test3"];
   const specialists = ["Bob"];
