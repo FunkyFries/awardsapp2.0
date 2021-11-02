@@ -11,6 +11,14 @@ import TerrificKidCertificate from "../components/terrifickidcertificate";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
 import {
+  teachers,
+  primaryTeachers,
+  intermediateTeachers,
+  specialists,
+  recessSpecialists,
+  determineGrade,
+} from "../components/constants";
+import {
   BackgroundDiv,
   DisplayAwardsContainer,
   StyledTable,
@@ -23,11 +31,11 @@ import {
 import Form from "react-bootstrap/Form";
 
 let currentQuarter;
-if (moment().isBefore("2020-11-20")) {
+if (moment().isBefore("2021-11-20")) {
   currentQuarter = "First Quarter";
-} else if (moment().isBefore("2021-03-10")) {
+} else if (moment().isBefore("2022-03-10")) {
   currentQuarter = "Second Quarter";
-} else if (moment().isBefore("2021-05-05")) {
+} else if (moment().isBefore("2022-05-05")) {
   currentQuarter = "Third Quarter";
 } else {
   currentQuarter = "Fourth Quarter";
@@ -44,12 +52,6 @@ const DisplayAwards = ({ userName }) => {
   const [printAwardsTable, setPrintAwardsTable] = useState(false);
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
   const [userInfo, setUserInfo] = useState({});
-
-  const teachers = ["Test1", "Test2", "Test3"];
-  const specialists = ["Bob"];
-  const primaryTeachers = ["Primary Teach1"];
-  const intermediateTeachers = ["Intermediate Teach2"];
-  const recessSpecialists = ["Recess1"];
 
   useEffect(() => {
     let students;
@@ -336,32 +338,15 @@ const DisplayAwards = ({ userName }) => {
       (student) => student.teacher === teacher
     );
     if (ARbyTeacher.length > 0) {
-      let grade;
-      if (
-        teacher === "Mrs. Martin" ||
-        teacher === "Mrs. Johnson" ||
-        teacher === "Ms. Nathanson"
-      ) {
-        grade = "Kindergarten";
-      } else if (teacher === "Mrs. Dilley" || teacher === "Mrs. Estep") {
-        grade = "First Grade";
-      } else if (teacher === "Ms. Terpstra" || teacher === "Mrs. Brar") {
-        grade = "Second Grade";
-      } else if (teacher === "Mrs. Haberman" || teacher === "Mrs. Carroll") {
-        grade = "Third Grade";
-      } else if (teacher === "Mr. Kranik") {
-        grade = "Fourth Grade";
-      } else if (teacher === "Mrs. Kasemeier") {
-        grade = "Fifth Grade";
-      } else if (teacher === "Mrs. Kidd" || teacher === "Mrs. Helle") {
-        grade = "Sixth Grade";
-      }
+      let grade = determineGrade(teacher);
       return (
         <tr key={grade}>
           <td>{grade}</td>
           <td>{ARbyTeacher[0].name}</td>
         </tr>
       );
+    } else {
+      return null;
     }
   });
 
