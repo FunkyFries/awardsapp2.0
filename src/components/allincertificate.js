@@ -2,7 +2,6 @@ import React from "react";
 import {
   CertDiv,
   PrintDiv,
-  AllInH1,
   ThreeRh4,
   AllInH5,
   ThreeRh2,
@@ -24,33 +23,30 @@ import {
   ThreeRWriteupTeacherDiv,
   ThreeRh5,
 } from "../styles/certstyles";
+import unshakeableLogo from "../styles/images/unshakeablelogo.png";
+import Logo from "../styles/images/Logo.png";
+import { determineTeacherSignature } from "./constants";
 
 const AllInCertificate = ({ students, currentQuarter }) => {
   const certs = students.map((student) => {
     return (
-      <div key={`${student._id}allin`}>
+      <div key={`${student.id}spiritualTheme`}>
         <CertDiv>
           <ThreeRContainer style={{ flexWrap: "wrap" }}>
             <OutstandingOuterBorder>
               <OutstandingInnerBorder>
-                <AllInLogo
-                  src="/static/livingfreeLogo.png"
-                  alt="Living Free Logo"
-                />
                 <AllInContainer>
                   <AllInH5 style={{ color: "#000" }}>
                     Frederickson Elementary
                   </AllInH5>
-                  <AllInH1 style={{ padding: "1rem 0" }}>
-                    Living Free Award
-                  </AllInH1>
+                  <AllInLogo src={unshakeableLogo} alt="Unshakeable Logo" />
                   <AllInH5>is hereby granted to</AllInH5>
                   <ThreeRh2>{student.name}</ThreeRh2>
                   <AllInH5>
                     for exemplifying the CCS Spiritual Theme during the
                   </AllInH5>
                   <ThreeRh4 style={{ paddingTop: "2rem" }}>
-                    {currentQuarter} of the 2020-2021 School Year
+                    {currentQuarter} of the 2021-2022 School Year
                   </ThreeRh4>
                 </AllInContainer>
                 <ThreeRSignatures style={{ width: "100%" }}>
@@ -63,17 +59,17 @@ const AllInCertificate = ({ students, currentQuarter }) => {
                 </ThreeRSignatures>
               </OutstandingInnerBorder>
             </OutstandingOuterBorder>
-            <AllInCCS src="/static/Logo.png" alt="CCS Logo" />
+            <AllInCCS src={Logo} alt="CCS Logo" />
           </ThreeRContainer>
         </CertDiv>
         <CertDiv>
           <ThreeRWriteupContainer>
             <ThreeRLogoContainer>
-              <ThreeRLogoImage src="/static/Logo.png" alt="CCS Logo" />
+              <ThreeRLogoImage src={Logo} alt="CCS Logo" />
             </ThreeRLogoContainer>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
               <ThreeRWriteupTitle style={{ width: "100%" }}>
-                Living Free Award
+                Unshakeable Award
               </ThreeRWriteupTitle>
               <ThreeRh3 style={{ width: "100%" }}>{student.name}</ThreeRh3>
               <ThreeRWriteup>{student.threeRwriteUp}</ThreeRWriteup>
@@ -81,7 +77,7 @@ const AllInCertificate = ({ students, currentQuarter }) => {
             <ThreeRWriteupSignature>
               <ThreeRWriteupTeacherDiv>
                 <ThreeRh5 style={{ marginTop: "1rem" }}>
-                  {student.teacher}, Teacher
+                  {determineTeacherSignature(student.classroom)}, Teacher
                 </ThreeRh5>
               </ThreeRWriteupTeacherDiv>
             </ThreeRWriteupSignature>

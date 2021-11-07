@@ -22,7 +22,7 @@ const NavBar = ({ user }) => {
   }
 
   return (
-    <Navbar bg="light" expand="lg" sticky="top">
+    <Navbar bg="light" expand="lg" sticky="top" className="d-print-none">
       <Navbar.Brand style={{ paddingLeft: "1rem" }} href="/awards">
         CCS Honors Awards
       </Navbar.Brand>

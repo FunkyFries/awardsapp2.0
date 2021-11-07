@@ -3,7 +3,6 @@ import {
   PrintDiv,
   CertDiv,
   ThreeRContainer,
-  InnerBorder,
   OuterBorder,
   TitleDiv,
   ThreeRLogo,
@@ -26,6 +25,10 @@ import {
   ThreeRWriteupTeacherDiv,
   OutstandingInnerBorder,
 } from "../styles/certstyles";
+import RLogo from "../styles/images/3Rlogo.png";
+import Header from "../styles/images/Header.png";
+import Logo from "../styles/images/Logo.png";
+import { determineTeacherSignature } from "./constants";
 
 const ThreeRCertificate = ({ students, currentQuarter }) => {
   const certs = students.map((student) => {
@@ -44,15 +47,15 @@ const ThreeRCertificate = ({ students, currentQuarter }) => {
     }
 
     return (
-      <div key={`${student._id}threeR`}>
+      <div key={`${student.id}threeR`}>
         <CertDiv>
-          <ThreeRLogo src="/static/3Rlogo.png" alt="3R logo" />
+          <ThreeRLogo src={RLogo} alt="3R logo" />
           <ThreeRContainer>
             <OuterBorder>
               <OutstandingInnerBorder style={{ margin: ".5rem" }}>
                 <TitleDiv>
                   <img
-                    src="/static/Header.png"
+                    src={Header}
                     alt="Header Background"
                     style={{
                       zIndex: -20,
@@ -70,7 +73,7 @@ const ThreeRCertificate = ({ students, currentQuarter }) => {
                   </ThreeRh3>
                   <ThreeRh3>the qualities of a leader.</ThreeRh3>
                   <ThreeRh5>Frederickson Campus</ThreeRh5>
-                  <ThreeRh4>{currentQuarter} of 20-21 School Year</ThreeRh4>
+                  <ThreeRh4>{currentQuarter} of 21-22 School Year</ThreeRh4>
                   <ThreeRSignatures>
                     <ThreeRHR />
                     <ThreeRHR />
@@ -82,13 +85,13 @@ const ThreeRCertificate = ({ students, currentQuarter }) => {
                 </ContentDiv>
               </OutstandingInnerBorder>
             </OuterBorder>
-            <ThreeRCCS src="/static/Logo.png" alt="CCS Logo" />
+            <ThreeRCCS src={Logo} alt="CCS Logo" />
           </ThreeRContainer>
         </CertDiv>
         <CertDiv>
           <ThreeRWriteupContainer>
             <ThreeRLogoContainer>
-              <ThreeRLogoImage src="/static/Logo.png" alt="CCS Logo" />
+              <ThreeRLogoImage src={Logo} alt="CCS Logo" />
             </ThreeRLogoContainer>
             <ThreeRWriteupTitle>{awardName} Cougar Award</ThreeRWriteupTitle>
             <ThreeRh4 style={{ fontStyle: "italic" }}>{definition}</ThreeRh4>
@@ -97,7 +100,7 @@ const ThreeRCertificate = ({ students, currentQuarter }) => {
             <ThreeRWriteupSignature>
               <ThreeRWriteupTeacherDiv>
                 <ThreeRh5 style={{ marginTop: "1rem" }}>
-                  {student.teacher}, Teacher
+                  {determineTeacherSignature(student.classroom)}, Teacher
                 </ThreeRh5>
               </ThreeRWriteupTeacherDiv>
             </ThreeRWriteupSignature>

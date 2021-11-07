@@ -25,17 +25,17 @@ import {
   ThreeRWriteupTeacherDiv,
   ThreeRh5,
 } from "../styles/certstyles";
+import Logo from "../styles/images/Logo.png";
+import star from "../styles/images/star.png";
+import { determineTeacherSignature } from "./constants";
 
 const OutstandingCertificate = ({ students, currentQuarter }) => {
   const certs = students.map((student) => {
     return (
-      <div key={`${student._id}outstanding`}>
+      <div key={`${student.id}outstanding`}>
         <CertDiv>
           <ThreeRContainer>
-            <OutstandingCCS
-              src="/static/Logo.png"
-              alt="CCS Logo"
-            ></OutstandingCCS>
+            <OutstandingCCS src={Logo} alt="CCS Logo"></OutstandingCCS>
             <OutstandingOuterBorder>
               <OutstandingInnerBorder>
                 <OutstandingH4>Frederickson Elementary</OutstandingH4>
@@ -46,7 +46,7 @@ const OutstandingCertificate = ({ students, currentQuarter }) => {
                   For outstanding achievement during the
                 </OutstandingH5>
                 <OutstandingH3>
-                  {currentQuarter} of the 2020-2021 School Year
+                  {currentQuarter} of the 2021-2022 School Year
                 </OutstandingH3>
                 <OutstandingSignatures>
                   <ThreeRHR />
@@ -58,13 +58,13 @@ const OutstandingCertificate = ({ students, currentQuarter }) => {
                 </OutstandingSignatures>
               </OutstandingInnerBorder>
             </OutstandingOuterBorder>
-            <OutstandingStar src="/static/star.png" alt="CCS Logo" />
+            <OutstandingStar src={star} alt="Outstanding Logo" />
           </ThreeRContainer>
         </CertDiv>
         <CertDiv>
           <ThreeRWriteupContainer>
             <ThreeRLogoContainer>
-              <ThreeRLogoImage src="/static/Logo.png" alt="CCS Logo" />
+              <ThreeRLogoImage src={Logo} alt="CCS Logo" />
             </ThreeRLogoContainer>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
               <ThreeRWriteupTitle style={{ width: "100%" }}>
@@ -76,7 +76,7 @@ const OutstandingCertificate = ({ students, currentQuarter }) => {
             <ThreeRWriteupSignature>
               <ThreeRWriteupTeacherDiv>
                 <ThreeRh5 style={{ marginTop: "1rem" }}>
-                  {student.teacher}, Teacher
+                  {determineTeacherSignature(student.classroom)}, Teacher
                 </ThreeRh5>
               </ThreeRWriteupTeacherDiv>
             </ThreeRWriteupSignature>

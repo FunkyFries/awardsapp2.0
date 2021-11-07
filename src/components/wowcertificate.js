@@ -16,12 +16,14 @@ import {
   ThreeRHR,
   OutstandingStar,
 } from "../styles/certstyles";
+import Logo from "../styles/images/Logo.png";
+import wowstar from "../styles/images/wowstar.png";
 
 const WowCertificate = ({ students, currentQuarter }) => {
   const certs = students.map((student) => (
-    <CertDiv key={`${student._id}wow`}>
+    <CertDiv key={`${student.id}wow`}>
       <ThreeRContainer>
-        <OutstandingCCS src="/static/Logo.png" alt="CCS Logo"></OutstandingCCS>
+        <OutstandingCCS src={Logo} alt="CCS Logo"></OutstandingCCS>
         <OutstandingOuterBorder>
           <OutstandingInnerBorder>
             <OutstandingH4>Frederickson Elementary</OutstandingH4>
@@ -32,7 +34,7 @@ const WowCertificate = ({ students, currentQuarter }) => {
               for the completion of their semester goal during the
             </OutstandingH5>
             <OutstandingH3>
-              {currentQuarter} of the 2020-2021 School Year
+              {currentQuarter} of the 2021-2022 School Year
             </OutstandingH3>
             <OutstandingSignatures>
               <ThreeRHR />
@@ -44,7 +46,7 @@ const WowCertificate = ({ students, currentQuarter }) => {
             </OutstandingSignatures>
           </OutstandingInnerBorder>
         </OutstandingOuterBorder>
-        <OutstandingStar src="/static/wowstar.png" alt="Star Logo" />
+        <OutstandingStar src={wowstar} alt="Star Logo" />
       </ThreeRContainer>
     </CertDiv>
   ));

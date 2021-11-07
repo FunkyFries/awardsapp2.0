@@ -11,14 +11,13 @@ import {
   ThreeRh5,
   TerrificH1,
 } from "../styles/certstyles";
+import terrificKidLogo from "../styles/images/terrifickidlogo.png";
+import { determineSpecialistSignature } from "./constants";
 
-const TerrificKidCertificate: React.FC<{
-  students: any;
-  currentQuarter: string;
-}> = ({ students, currentQuarter }) => {
+const TerrificKidCertificate = ({ students, currentQuarter }) => {
   const certs = students.map((student) => {
     return (
-      <div key={`${student._id}terrifickid`}>
+      <div key={`${student.id}terrifickid`}>
         <CertDiv style={{ display: "flex" }}>
           <TerrificH1>{student.name}</TerrificH1>
         </CertDiv>
@@ -26,7 +25,7 @@ const TerrificKidCertificate: React.FC<{
           <ThreeRWriteupContainer>
             <img
               style={{ height: "30%", margin: "0 auto" }}
-              src="/static/terrifickidlogo.png"
+              src={terrificKidLogo}
               alt="Terrific Kid Logo"
             />
             <ThreeRWriteupTitle
@@ -36,7 +35,7 @@ const TerrificKidCertificate: React.FC<{
                 fontFamily: "Noto Sans",
               }}
             >
-              {currentQuarter} 2020 - 2021
+              {currentQuarter} 2021 - 2022
             </ThreeRWriteupTitle>
             <div style={{ width: "100%" }}>
               <ThreeRh3>{student.name}</ThreeRh3>
@@ -45,7 +44,7 @@ const TerrificKidCertificate: React.FC<{
             <ThreeRWriteupSignature>
               <ThreeRWriteupTeacherDiv>
                 <ThreeRh5 style={{ marginTop: "1rem" }}>
-                  {student.terrificKidChosenBy}
+                  {determineSpecialistSignature(student.terrificKidChosenBy)}
                 </ThreeRh5>
               </ThreeRWriteupTeacherDiv>
             </ThreeRWriteupSignature>

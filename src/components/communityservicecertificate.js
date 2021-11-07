@@ -25,20 +25,16 @@ import {
   ThreeRWriteupTeacherDiv,
   ThreeRh5,
 } from "../styles/certstyles";
+import Logo from "../styles/images/Logo.png";
+import GoldStar from "../styles/images/goldstar.png";
 
-const CommunityServiceCertificate: React.FC<{
-  students: any;
-  currentQuarter: string;
-}> = ({ students, currentQuarter }) => {
+const CommunityServiceCertificate = ({ students, currentQuarter }) => {
   const certs = students.map((student) => {
     return (
-      <div key={`${student._id}communityservice`}>
+      <div key={`${student.id}communityservice`}>
         <CertDiv>
           <ThreeRContainer>
-            <OutstandingCCS
-              src="/static/Logo.png"
-              alt="CCS Logo"
-            ></OutstandingCCS>
+            <OutstandingCCS src={Logo} alt="CCS Logo"></OutstandingCCS>
             <OutstandingOuterBorder>
               <OutstandingInnerBorder>
                 <OutstandingH4>Frederickson Elementary</OutstandingH4>
@@ -49,7 +45,7 @@ const CommunityServiceCertificate: React.FC<{
                 <OutstandingH2>{student.name}</OutstandingH2>
                 <OutstandingH5>For community service during the</OutstandingH5>
                 <OutstandingH3>
-                  {currentQuarter} of the 2020-2021 School Year
+                  {currentQuarter} of the 2021-2022 School Year
                 </OutstandingH3>
                 <OutstandingSignatures>
                   <ThreeRHR />
@@ -61,13 +57,13 @@ const CommunityServiceCertificate: React.FC<{
                 </OutstandingSignatures>
               </OutstandingInnerBorder>
             </OutstandingOuterBorder>
-            <CommunityServiceStar src="/static/goldstar.png" alt="CCS Logo" />
+            <CommunityServiceStar src={GoldStar} alt="Community Service Logo" />
           </ThreeRContainer>
         </CertDiv>
         <CertDiv>
           <ThreeRWriteupContainer>
             <ThreeRLogoContainer>
-              <ThreeRLogoImage src="/static/Logo.png" alt="CCS Logo" />
+              <ThreeRLogoImage src={Logo} alt="CCS Logo" />
             </ThreeRLogoContainer>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
               <ThreeRWriteupTitle style={{ width: "100%" }}>

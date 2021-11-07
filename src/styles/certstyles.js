@@ -107,12 +107,13 @@ export const ThreeRLogo = styled.img`
 `;
 
 export const ThreeRCCS = styled.img`
+  width: 100px;
   display: flex;
   align-self: flex-end;
   z-index: 11;
   position: absolute;
   padding-left: 1rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 5rem;
 `;
 
 export const ContentDiv = styled.div`
@@ -126,6 +127,8 @@ export const ThreeRHR = styled.hr`
   width: 30%;
   align-self: flex-end;
   margin-bottom: 0.5rem;
+
+  -webkit-print-color-adjust: exact;
 `;
 
 export const ThreeRSignatures = styled.div`
@@ -204,8 +207,8 @@ export const ThreeRLogoContainer = styled.div`
 `;
 
 export const ThreeRLogoImage = styled.img`
-  width: 225px;
-  height: 135px;
+  width: 100px;
+  height: 129px;
 `;
 
 export const ThreeRWriteupSignature = styled.div`
@@ -220,6 +223,7 @@ export const ThreeRWriteupTeacherDiv = styled.div`
 `;
 
 export const OutstandingCCS = styled.img`
+  width: 15%;
   display: flex;
   margin-top: 2rem;
   align-self: flex-start;
@@ -329,8 +333,9 @@ export const AllInH1 = styled.h1`
 `;
 
 export const AllInLogo = styled.img`
-  width: 50%;
+  width: 70%;
   display: flex;
+  margin: 0 auto;
   padding-top: 4rem;
   padding-bottom: 2rem;
 `;
@@ -340,14 +345,12 @@ export const AllInContainer = styled.div`
   flex-direction: column;
   text-align: center;
   padding-top: 4rem;
-  padding-right: 2rem;
-  width: 50%;
 `;
 
 export const AllInCCS = styled.img`
   display: flex;
   align-self: flex-end;
-  width: 150px;
+  width: 80px;
   position: absolute;
   padding-left: 1rem;
   padding-bottom: 5rem;

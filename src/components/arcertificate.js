@@ -11,6 +11,8 @@ import {
   Signatures,
   HR,
 } from "../styles/certstyles";
+import { determineGrade } from "./constants";
+import Logo from "../styles/images/Logo.png";
 
 const ArCertificate = ({ students, currentQuarter }) => {
   const certs = students.map((student) => {
@@ -19,17 +21,20 @@ const ArCertificate = ({ students, currentQuarter }) => {
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     return (
-      <CertDiv key={student._id}>
+      <CertDiv key={student.id}>
         <H1>AR Reader of the Quarter</H1>
         <H4>presented to</H4>
         <H2>{student.name}</H2>
         <H3>
-          on this 21st day of April, 2021 for reading {formattedWords} words in
-          the {currentQuarter.toLowerCase()}!
+          on this 17th day of November, 2021 for reading {formattedWords} words
+          in the {currentQuarter.toLowerCase()}!
         </H3>
-        <H3>The most in !</H3>
-        <Img src="/static/Logo.png" alt="CCS Logo" />
-        <Img src="/static/FredericksonText.png" alt="CCS Logo" />
+        <H3>The most in {determineGrade(student.classroom)}!</H3>
+        <Img
+          style={{ width: "13%", marginTop: "2rem" }}
+          src={Logo}
+          alt="CCS Logo"
+        />
         <Signatures>
           <HR></HR>
           <HR></HR>

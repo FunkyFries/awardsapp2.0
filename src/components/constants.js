@@ -1,11 +1,11 @@
 import moment from "moment";
 
 export function currentQuarter() {
-  if (moment().isBefore("2020-11-20")) {
+  if (moment().isBefore("2021-12-20")) {
     return "First Quarter";
-  } else if (moment().isBefore("2021-02-12")) {
+  } else if (moment().isBefore("2022-02-12")) {
     return "Second Quarter";
-  } else if (moment().isBefore("2021-04-22")) {
+  } else if (moment().isBefore("2022-04-22")) {
     return "Third Quarter";
   } else {
     return "Fourth Quarter";
@@ -80,5 +80,59 @@ export function determineGrade(classroom) {
     return "Fifth Grade";
   } else if (classroom === "Kelly Kidd" || classroom === "Kristin Helle") {
     return "Sixth Grade";
+  }
+}
+
+export function determineTeacherSignature(teacher) {
+  switch (teacher) {
+    case "Angel Martin":
+      return "Mrs. Martin";
+    case "Kaitlyn Johnson":
+      return "Mrs. Johnson";
+    case "Jamie Estep":
+      return "Mrs. Estep";
+    case "Kathy Dilley":
+      return "Mrs. Dilley";
+    case "Kellie Terpstra":
+      return "Ms. Terpstra";
+    case "AnnaLisa Lang":
+      return "Ms. Lang";
+    case "Trista Haberman":
+      return "Mrs. Haberman";
+    case "Kim Pederson":
+      return "Ms. Pederson";
+    case "Claude Kranik":
+      return "Mr. Kranik";
+    case "Kabrina Kidd":
+      return "Ms. Kidd";
+    case "Nathan Lenhart":
+      return "Mr. Lenhart";
+    case "Michelle Medina":
+      return "Mrs. Medina";
+    case "Kelly Kidd":
+      return "Mrs. Kidd";
+    case "Kristin Helle":
+      return "Mrs. Helle";
+    default:
+      console.log(`Sorry, ${teacher} not found.`);
+      break;
+  }
+}
+
+export function determineSpecialistSignature(teacher) {
+  switch (teacher) {
+    case "Ryan Leach":
+      return "Mr. Leach";
+    case "Denise Sievers":
+      return "Mrs. Sievers";
+    case "Bryan Botka":
+      return "Mr. Botka";
+    case "Bre Jeffries":
+      return "Mrs. Jeffries";
+    case "Rene Perry":
+      return "Ms. Perry";
+    default:
+      console.log(`Sorry ${teacher} not found.`);
+      break;
   }
 }

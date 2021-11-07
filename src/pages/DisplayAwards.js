@@ -14,7 +14,6 @@ import {
   primaryTeachers,
   intermediateTeachers,
   specialists,
-  recessSpecialists,
   determineGrade,
   currentQuarter,
 } from "../components/constants";
@@ -44,11 +43,14 @@ const DisplayAwards = ({ userName }) => {
 
   useEffect(() => {
     let students;
-    students = firebase.database().ref("classrooms");
+    students = firebase.database().ref("classroom");
     students.on("value", function (snapshot) {
       setArrayOfStudents([]);
       snapshot.forEach(function (childNodes) {
-        console.log(childNodes);
+        childNodes.forEach(function (childNode) {
+          const newEntry = { ...childNode.val() };
+          setArrayOfStudents((prevState) => [...prevState, newEntry]);
+        });
       });
     });
     let user;
@@ -68,9 +70,11 @@ const DisplayAwards = ({ userName }) => {
     return 0;
   };
 
+  console.log(arrayOfStudents);
+
   const threeRstudents = arrayOfStudents
     .filter((student) => student.threeR !== "none")
-    .sort(compare("teacher"));
+    .sort(compare("classroom"));
 
   const terrificStudents = arrayOfStudents
     .filter((student) => student.terrificKid)
@@ -80,7 +84,9 @@ const DisplayAwards = ({ userName }) => {
     (student) => student.acceleratedReader
   );
 
-  const allInStudents = arrayOfStudents.filter((student) => student.allInAward);
+  const spiritualThemeStudents = arrayOfStudents.filter(
+    (student) => student.spiritualTheme
+  );
 
   const outstandingStudents = arrayOfStudents.filter(
     (student) => student.outstandingAchievement
@@ -98,7 +104,7 @@ const DisplayAwards = ({ userName }) => {
   const teacherRows = teachers.map((teacher) => {
     let relationshipStudent = threeRstudents.find(
       (student) =>
-        student.teacher === teacher &&
+        student.classroom === teacher &&
         student.threeR === `Relationship - ${currentQuarter()}`
     );
     let relationship;
@@ -108,7 +114,7 @@ const DisplayAwards = ({ userName }) => {
 
     let respectStudent = threeRstudents.find(
       (student) =>
-        student.teacher === teacher &&
+        student.classroom === teacher &&
         student.threeR === `Respect - ${currentQuarter()}`
     );
     let respect;
@@ -118,7 +124,7 @@ const DisplayAwards = ({ userName }) => {
 
     let responsibilityStudent = threeRstudents.find(
       (student) =>
-        student.teacher === teacher &&
+        student.classroom === teacher &&
         student.threeR === `Responsibility - ${currentQuarter()}`
     );
     let responsibility;
@@ -126,16 +132,17 @@ const DisplayAwards = ({ userName }) => {
       responsibility = responsibilityStudent.name;
     }
 
-    let allInStudent = allInStudents.find(
-      (student) => student.teacher === teacher && student.allInAward
+    let spiritualThemeStudent = spiritualThemeStudents.find(
+      (student) => student.classroom === teacher && student.spiritualTheme
     );
-    let allIn;
-    if (allInStudent) {
-      allIn = allInStudent.name;
+    let spiritualTheme;
+    if (spiritualThemeStudent) {
+      spiritualTheme = spiritualThemeStudent.name;
     }
 
     let oustandingStudent = outstandingStudents.find(
-      (student) => student.teacher === teacher && student.outstandingAchievement
+      (student) =>
+        student.classroom === teacher && student.outstandingAchievement
     );
     let outstanding;
     if (oustandingStudent) {
@@ -145,7 +152,7 @@ const DisplayAwards = ({ userName }) => {
     // Add Terrific Kid, Community Service, and AR awards to teacher table for printing
 
     let terrificKids = terrificStudents.filter(
-      (student) => student.teacher === teacher
+      (student) => student.classroom === teacher
     );
     let terrific = (
       <>
@@ -170,14 +177,14 @@ const DisplayAwards = ({ userName }) => {
     }
 
     let communityKid = communityServiceStudents.find(
-      (student) => student.teacher === teacher
+      (student) => student.classroom === teacher
     );
     let community;
     if (communityKid) {
       community = communityKid.name;
     }
 
-    let arKid = ARstudents.find((student) => student.teacher === teacher);
+    let arKid = ARstudents.find((student) => student.classroom === teacher);
     let ar;
     if (arKid) {
       ar = arKid.name;
@@ -189,7 +196,7 @@ const DisplayAwards = ({ userName }) => {
         <td>{relationship}</td>
         <td>{respect}</td>
         <td>{responsibility}</td>
-        <td>{allIn}</td>
+        <td>{spiritualTheme}</td>
         <td>{outstanding}</td>
         {terrific}
         <td>{community}</td>
@@ -206,7 +213,7 @@ const DisplayAwards = ({ userName }) => {
     let primary;
     if (terrificKids) {
       primary = terrificKids.filter((student) =>
-        primaryTeachers.includes(student.teacher)
+        primaryTeachers.includes(student.classroom)
       );
     }
     let primaryColumns = (
@@ -235,7 +242,7 @@ const DisplayAwards = ({ userName }) => {
     let intermediate;
     if (terrificKids) {
       intermediate = terrificKids.filter((student) =>
-        intermediateTeachers.includes(student.teacher)
+        intermediateTeachers.includes(student.classroom)
       );
     }
 
@@ -281,10 +288,10 @@ const DisplayAwards = ({ userName }) => {
       let intermediate;
       if (ccsKids) {
         primary = ccsKids.filter((student) =>
-          primaryTeachers.includes(student.teacher)
+          primaryTeachers.includes(student.classroom)
         );
         intermediate = ccsKids.filter((student) =>
-          intermediateTeachers.includes(student.teacher)
+          intermediateTeachers.includes(student.classroom)
         );
       }
       let primaryColumn = (
@@ -326,7 +333,7 @@ const DisplayAwards = ({ userName }) => {
   // Create AR Awards Table
   const ARhonorsRows = teachers.map((teacher) => {
     let ARbyTeacher = ARstudents.filter(
-      (student) => student.teacher === teacher
+      (student) => student.classroom === teacher
     );
     if (ARbyTeacher.length > 0) {
       let grade = determineGrade(teacher);
@@ -344,7 +351,7 @@ const DisplayAwards = ({ userName }) => {
   // Create Wow Awards Table
   const wowAwardsRows = intermediateTeachers.map((teacher) => {
     let wowAwardsByTeacher = wowStudents.filter(
-      (student) => student.teacher === teacher
+      (student) => student.classroom === teacher
     );
     let rows = [];
     if (wowAwardsByTeacher.length > 0) {
@@ -386,7 +393,7 @@ const DisplayAwards = ({ userName }) => {
       {printAllIn ? (
         <AllInCertificate
           currentQuarter={currentQuarter()}
-          students={allInStudents}
+          students={spiritualThemeStudents}
         ></AllInCertificate>
       ) : null}
       {printOutstanding ? (
@@ -440,7 +447,7 @@ const DisplayAwards = ({ userName }) => {
                 />
                 <Form.Check
                   type="checkbox"
-                  label="Living Free Certificates"
+                  label="Spiritual Theme Certificates"
                   id="printAllInCertificates"
                   onChange={() => setPrintAllIn(!printAllIn)}
                   checked={printAllIn}
@@ -518,7 +525,7 @@ const DisplayAwards = ({ userName }) => {
                 <th>Relationship</th>
                 <th>Respect</th>
                 <th>Responsibility</th>
-                <th>Living Free</th>
+                <th>Unshakeable</th>
                 <th>Oustanding Achievement</th>
                 <th colSpan={2}>Terrific Kid</th>
                 <th>Community Service</th>
