@@ -1,3 +1,17 @@
+import moment from "moment";
+
+export function currentQuarter() {
+  if (moment().isBefore("2020-11-20")) {
+    return "First Quarter";
+  } else if (moment().isBefore("2021-02-12")) {
+    return "Second Quarter";
+  } else if (moment().isBefore("2021-04-22")) {
+    return "Third Quarter";
+  } else {
+    return "Fourth Quarter";
+  }
+}
+
 export const teachers = [
   "Angel Martin",
   "Kaitlyn Johnson",
@@ -37,7 +51,7 @@ export const intermediateTeachers = [
 
 export const bandTeachers = ["Kelly Kidd", "Kristin Helle"];
 
-export const recessSpecialists = ["Mrs. Raab & Mrs. Zaharevich"];
+export const recessSpecialists = "Mrs. Raab & Mrs. Zaharevich";
 
 export const specialists = [
   "Ryan Leach",

@@ -36,16 +36,16 @@ const ManageUsers = () => {
         outstandingAchievement: false,
         wowAward: false,
         cougarCommunityService: false,
-        communityServiceChosenBy: "",
+        communityServiceChosenBy: "none",
         ccsWriteup: "",
         terrificKid: false,
-        terrificKidChosenBy: "",
+        terrificKidChosenBy: "none",
         terrificKidWriteup: "",
-        threeR: "",
+        threeR: "none",
         threeRWriteup: "",
         acceleratedReader: false,
         words: 0,
-        pastAwards: [],
+        pastAwards: [""],
       });
   }
 

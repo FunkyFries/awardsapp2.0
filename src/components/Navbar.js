@@ -23,7 +23,9 @@ const NavBar = ({ user }) => {
 
   return (
     <Navbar bg="light" expand="lg" sticky="top">
-      <Navbar.Brand href="/home">CCS Honors Awards</Navbar.Brand>
+      <Navbar.Brand style={{ paddingLeft: "1rem" }} href="/awards">
+        CCS Honors Awards
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

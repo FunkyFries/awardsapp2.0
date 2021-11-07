@@ -9,7 +9,6 @@ import AllInCertificate from "../components/allincertificate";
 import WowCertificate from "../components/wowcertificate";
 import TerrificKidCertificate from "../components/terrifickidcertificate";
 import Button from "react-bootstrap/Button";
-import moment from "moment";
 import {
   teachers,
   primaryTeachers,
@@ -17,6 +16,7 @@ import {
   specialists,
   recessSpecialists,
   determineGrade,
+  currentQuarter,
 } from "../components/constants";
 import {
   BackgroundDiv,
@@ -29,17 +29,6 @@ import {
   PrintFormContainer,
 } from "../styles/displayawardstyles";
 import Form from "react-bootstrap/Form";
-
-let currentQuarter;
-if (moment().isBefore("2021-11-20")) {
-  currentQuarter = "First Quarter";
-} else if (moment().isBefore("2022-03-10")) {
-  currentQuarter = "Second Quarter";
-} else if (moment().isBefore("2022-05-05")) {
-  currentQuarter = "Third Quarter";
-} else {
-  currentQuarter = "Fourth Quarter";
-}
 
 const DisplayAwards = ({ userName }) => {
   const [printThreeR, setPrintThreeR] = useState(true);
@@ -110,7 +99,7 @@ const DisplayAwards = ({ userName }) => {
     let relationshipStudent = threeRstudents.find(
       (student) =>
         student.teacher === teacher &&
-        student.threeR === `Relationship - ${currentQuarter}`
+        student.threeR === `Relationship - ${currentQuarter()}`
     );
     let relationship;
     if (relationshipStudent) {
@@ -120,7 +109,7 @@ const DisplayAwards = ({ userName }) => {
     let respectStudent = threeRstudents.find(
       (student) =>
         student.teacher === teacher &&
-        student.threeR === `Respect - ${currentQuarter}`
+        student.threeR === `Respect - ${currentQuarter()}`
     );
     let respect;
     if (respectStudent) {
@@ -130,7 +119,7 @@ const DisplayAwards = ({ userName }) => {
     let responsibilityStudent = threeRstudents.find(
       (student) =>
         student.teacher === teacher &&
-        student.threeR === `Responsibility - ${currentQuarter}`
+        student.threeR === `Responsibility - ${currentQuarter()}`
     );
     let responsibility;
     if (responsibilityStudent) {
@@ -283,54 +272,56 @@ const DisplayAwards = ({ userName }) => {
   });
 
   // Create Community Service Table
-  const communityServiceRows = recessSpecialists.map((specialist) => {
-    let ccsKids = communityServiceStudents.filter(
-      (student) => student.communityServiceChosenBy === specialist
-    );
-    let primary;
-    let intermediate;
-    if (ccsKids) {
-      primary = ccsKids.filter((student) =>
-        primaryTeachers.includes(student.teacher)
+  const communityServiceRows = ["Mrs. Raab & Mrs. Zaharevich"].map(
+    (specialist) => {
+      let ccsKids = communityServiceStudents.filter(
+        (student) => student.communityServiceChosenBy === specialist
       );
-      intermediate = ccsKids.filter((student) =>
-        intermediateTeachers.includes(student.teacher)
-      );
-    }
-    let primaryColumn = (
-      <>
-        <td></td>
-      </>
-    );
-    if (primary.length === 1) {
-      primaryColumn = (
+      let primary;
+      let intermediate;
+      if (ccsKids) {
+        primary = ccsKids.filter((student) =>
+          primaryTeachers.includes(student.teacher)
+        );
+        intermediate = ccsKids.filter((student) =>
+          intermediateTeachers.includes(student.teacher)
+        );
+      }
+      let primaryColumn = (
         <>
-          <td>{primary[0].name}</td>
+          <td></td>
         </>
       );
-    }
+      if (primary.length === 1) {
+        primaryColumn = (
+          <>
+            <td>{primary[0].name}</td>
+          </>
+        );
+      }
 
-    let intermediateColumn = (
-      <>
-        <td></td>
-      </>
-    );
-    if (intermediate.length === 1) {
-      intermediateColumn = (
+      let intermediateColumn = (
         <>
-          <td>{intermediate[0].name}</td>
+          <td></td>
         </>
       );
-    }
+      if (intermediate.length === 1) {
+        intermediateColumn = (
+          <>
+            <td>{intermediate[0].name}</td>
+          </>
+        );
+      }
 
-    return (
-      <tr key={specialist}>
-        <td>{specialist}</td>
-        {primaryColumn}
-        {intermediateColumn}
-      </tr>
-    );
-  });
+      return (
+        <tr key={specialist}>
+          <td>{specialist}</td>
+          {primaryColumn}
+          {intermediateColumn}
+        </tr>
+      );
+    }
+  );
 
   // Create AR Awards Table
   const ARhonorsRows = teachers.map((teacher) => {
@@ -388,42 +379,45 @@ const DisplayAwards = ({ userName }) => {
     <>
       {printThreeR ? (
         <ThreeRCertificate
-          currentQuarter={currentQuarter}
+          currentQuarter={currentQuarter()}
           students={threeRstudents}
         />
       ) : null}
       {printAllIn ? (
         <AllInCertificate
-          currentQuarter={currentQuarter}
+          currentQuarter={currentQuarter()}
           students={allInStudents}
         ></AllInCertificate>
       ) : null}
       {printOutstanding ? (
         <OutstandingCertificate
           students={outstandingStudents}
-          currentQuarter={currentQuarter}
+          currentQuarter={currentQuarter()}
         />
       ) : null}
       {printTerrific ? (
         <TerrificKidCertificate
           students={terrificStudents}
-          currentQuarter={currentQuarter}
+          currentQuarter={currentQuarter()}
         ></TerrificKidCertificate>
       ) : null}
       {printCommunityService ? (
         <CommunityServiceCertificate
           students={communityServiceStudents}
-          currentQuarter={currentQuarter}
+          currentQuarter={currentQuarter()}
         />
       ) : null}
       {printWow ? (
         <WowCertificate
           students={wowStudents}
-          currentQuarter={currentQuarter}
+          currentQuarter={currentQuarter()}
         />
       ) : null}
       {printAR ? (
-        <ArCertificate students={ARstudents} currentQuarter={currentQuarter} />
+        <ArCertificate
+          students={ARstudents}
+          currentQuarter={currentQuarter()}
+        />
       ) : null}
       <BackgroundDiv className={printAwardsTable ? "" : "d-print-none"}>
         <DisplayAwardsContainer>
