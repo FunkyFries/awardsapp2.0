@@ -231,7 +231,7 @@ const UserForm = ({
               >
                 Close
               </Button>
-              <Button variant="danger" onClick={() => handleDelete(id)}>
+              <Button variant="danger" onClick={() => handleDelete(name)}>
                 Delete
               </Button>
             </Modal.Footer>

@@ -56,8 +56,8 @@ const ManageUsers = () => {
       .update({ ...student });
   }
 
-  function deleteStudent() {
-    console.log("delete!");
+  function deleteStudent(teacher, id) {
+    firebase.database().ref(`classroom/${teacher}/${id}`).remove();
   }
 
   function addUser(user) {
@@ -80,17 +80,20 @@ const ManageUsers = () => {
       });
   }
 
-  function deleteUser(id) {
-    firebase.database().ref(`users/${id}`).remove();
+  function deleteUser(name) {
+    firebase.database().ref(`users/${name}`).remove();
   }
 
   useEffect(() => {
     let students;
-    students = firebase.database().ref("classrooms");
+    students = firebase.database().ref("classroom");
     students.on("value", function (snapshot) {
       setArrayOfStudents([]);
       snapshot.forEach(function (childNodes) {
-        console.log(childNodes);
+        childNodes.forEach(function (childNode) {
+          const newEntry = { ...childNode.val() };
+          setArrayOfStudents((prevState) => [...prevState, newEntry]);
+        });
       });
     });
     let users;
@@ -110,8 +113,8 @@ const ManageUsers = () => {
         key={student.id}
         id={student.id}
         name={student.name}
-        teacher={student.teacher}
-        image={student.image}
+        teacher={student.classroom}
+        image={student.imageUrl}
         handleDelete={deleteStudent}
         updateStudent={updateStudent}
       ></StudentForm>

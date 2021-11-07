@@ -164,7 +164,10 @@ const StudentForm = ({
               >
                 Close
               </Button>
-              <Button variant="danger" onClick={() => handleDelete(id)}>
+              <Button
+                variant="danger"
+                onClick={() => handleDelete(teacher, id)}
+              >
                 Delete
               </Button>
             </Modal.Footer>

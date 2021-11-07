@@ -17,7 +17,7 @@ export const teachers = [
   "Kaitlyn Johnson",
   "Jamie Estep",
   "Kathy Dilley",
-  "AnnaLisa Lang",
+  "Annalisa Lang",
   "Kellie Terpstra",
   "Kim Pederson",
   "Trista Haberman",
@@ -34,7 +34,7 @@ export const primaryTeachers = [
   "Kaitlyn Johnson",
   "Jamie Estep",
   "Kathy Dilley",
-  "AnnaLisa Lang",
+  "Annalisa Lang",
   "Kellie Terpstra",
 ];
 
@@ -66,7 +66,7 @@ export function determineGrade(classroom) {
     return "Kindergarten";
   } else if (classroom === "Kathy Dilley" || classroom === "Jamie Estep") {
     return "First Grade";
-  } else if (classroom === "Kellie Terpstra" || classroom === "AnnaLisa Lang") {
+  } else if (classroom === "Kellie Terpstra" || classroom === "Annalisa Lang") {
     return "Second Grade";
   } else if (classroom === "Trista Haberman" || classroom === "Kim Pederson") {
     return "Third Grade";
@@ -95,7 +95,7 @@ export function determineTeacherSignature(teacher) {
       return "Mrs. Dilley";
     case "Kellie Terpstra":
       return "Ms. Terpstra";
-    case "AnnaLisa Lang":
+    case "Annalisa Lang":
       return "Ms. Lang";
     case "Trista Haberman":
       return "Mrs. Haberman";

@@ -22,10 +22,16 @@ import {
   TeacherHeadingDiv,
   StyledHr,
   BackgroundDiv,
-  DueDate,
+  // DueDate,
 } from "../styles/awardstyles";
 
 const Awards = ({ userName }) => {
+  if (userName === "Kim Carroll") {
+    userName = "Kim Pederson";
+  }
+  if (userName === "Breanne Jeffries") {
+    userName = "Bre Jeffries";
+  }
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
   const [userInfo, setUserInfo] = useState({});
   const [collapsed, setCollapsed] = useState({
@@ -67,9 +73,10 @@ const Awards = ({ userName }) => {
     if (
       specialists.includes(userName) ||
       userName === "Lydia Raab" ||
-      userName === "Raelynn Zaharevich" ||
+      userName === "RaeLynn Zaharevich" ||
       userName === "Annie Pichot" ||
-      userName === "Heidi Bekken"
+      userName === "Heidi Bekken" ||
+      userName === "Jamaica Mulhern"
     ) {
       students = firebase.database().ref("classroom");
       students.on("value", function (snapshot) {
