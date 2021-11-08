@@ -40,7 +40,7 @@ const TerrificKidCertificate = ({ students, currentQuarter }) => {
             <div style={{ width: "100%" }}>
               <ThreeRh3>{student.name}</ThreeRh3>
             </div>
-            <ThreeRWriteup>{student.terrificKidWriteUp}</ThreeRWriteup>
+            <ThreeRWriteup>{student.terrificKidWriteup}</ThreeRWriteup>
             <ThreeRWriteupSignature>
               <ThreeRWriteupTeacherDiv>
                 <ThreeRh5 style={{ marginTop: "1rem" }}>

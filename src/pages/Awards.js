@@ -39,7 +39,7 @@ const Awards = ({ userName }) => {
     "Kaitlyn Johnson": true,
     "Jamie Estep": true,
     "Kathy Dilley": true,
-    "AnnaLisa Lang": true,
+    "Annalisa Lang": true,
     "Kellie Terpstra": true,
     "Kim Pederson": true,
     "Trista Haberman": true,

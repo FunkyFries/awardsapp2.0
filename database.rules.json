@@ -1,6 +1,6 @@
 {
   "rules": {
-    ".read": false,
-    ".write": false
+    ".read": "auth.token.email.endsWith('@cascadechristian.org')",
+    ".write": "auth.token.email.endsWith('@cascadechristian.org')"
   }
 }

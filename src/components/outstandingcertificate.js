@@ -71,7 +71,7 @@ const OutstandingCertificate = ({ students, currentQuarter }) => {
                 Outstanding Achievement Award
               </ThreeRWriteupTitle>
               <ThreeRh3 style={{ width: "100%" }}>{student.name}</ThreeRh3>
-              <ThreeRWriteup>{student.threeRwriteUp}</ThreeRWriteup>
+              <ThreeRWriteup>{student.threeRWriteup}</ThreeRWriteup>
             </div>
             <ThreeRWriteupSignature>
               <ThreeRWriteupTeacherDiv>

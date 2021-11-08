@@ -70,8 +70,6 @@ const DisplayAwards = ({ userName }) => {
     return 0;
   };
 
-  console.log(arrayOfStudents);
-
   const threeRstudents = arrayOfStudents
     .filter((student) => student.threeR !== "none")
     .sort(compare("classroom"));

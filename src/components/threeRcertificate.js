@@ -96,7 +96,7 @@ const ThreeRCertificate = ({ students, currentQuarter }) => {
             <ThreeRWriteupTitle>{awardName} Cougar Award</ThreeRWriteupTitle>
             <ThreeRh4 style={{ fontStyle: "italic" }}>{definition}</ThreeRh4>
             <ThreeRh3 style={{ width: "100%" }}>{student.name}</ThreeRh3>
-            <ThreeRWriteup>{student.threeRwriteUp}</ThreeRWriteup>
+            <ThreeRWriteup>{student.threeRWriteup}</ThreeRWriteup>
             <ThreeRWriteupSignature>
               <ThreeRWriteupTeacherDiv>
                 <ThreeRh5 style={{ marginTop: "1rem" }}>
