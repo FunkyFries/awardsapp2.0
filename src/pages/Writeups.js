@@ -21,6 +21,9 @@ const WriteUps = ({ userName }) => {
   if (userName === "Breanne Jeffries") {
     userName = "Bre Jeffries";
   }
+  if (userName === "Kristal Weber") {
+    userName = "Michelle Medina";
+  }
 
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
   const [userInfo, setUserInfo] = useState({});

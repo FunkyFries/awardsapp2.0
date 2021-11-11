@@ -32,23 +32,26 @@ const Awards = ({ userName }) => {
   if (userName === "Breanne Jeffries") {
     userName = "Bre Jeffries";
   }
+  if (userName === "Kristal Weber") {
+    userName = "Michelle Medina";
+  }
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
   const [userInfo, setUserInfo] = useState({});
   const [collapsed, setCollapsed] = useState({
-    "Angel Martin": true,
-    "Kaitlyn Johnson": true,
-    "Jamie Estep": true,
-    "Kathy Dilley": true,
-    "Annalisa Lang": true,
-    "Kellie Terpstra": true,
-    "Kim Pederson": true,
-    "Trista Haberman": true,
-    "Claude Kranik": true,
-    "Kabrina Kidd": true,
-    "Nathan Lenhart": true,
-    "Michelle Medina": true,
-    "Kristin Helle": true,
-    "Kelly Kidd": true,
+    "Angel Martin": false,
+    "Kaitlyn Johnson": false,
+    "Jamie Estep": false,
+    "Kathy Dilley": false,
+    "Annalisa Lang": false,
+    "Kellie Terpstra": false,
+    "Kim Pederson": false,
+    "Trista Haberman": false,
+    "Claude Kranik": false,
+    "Kabrina Kidd": false,
+    "Nathan Lenhart": false,
+    "Michelle Medina": false,
+    "Kristin Helle": false,
+    "Kelly Kidd": false,
   });
   let StudentCards = {};
   const [disableRespect, setDisableRespect] = useState(false);
