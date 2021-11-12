@@ -127,11 +127,41 @@ const AwardForm = ({
         .database()
         .ref(`classroom/${teacher}/${id}`)
         .update({ terrificKid: true, terrificKidChosenBy: userName });
+      if (primaryTeachers.includes(teacher)) {
+        firebase
+          .database()
+          .ref(`counts/${userName}`)
+          .update({
+            primaryTerrific: firebase.database.ServerValue.increment(1),
+          });
+      } else {
+        firebase
+          .database()
+          .ref(`counts/${userName}`)
+          .update({
+            intermediateTerrific: firebase.database.ServerValue.increment(1),
+          });
+      }
     } else if (terrificKidChosenBy === userName || role === "admin") {
       firebase
         .database()
         .ref(`classroom/${teacher}/${id}`)
         .update({ terrificKid: false, terrificKidChosenBy: "none" });
+      if (primaryTeachers.includes(teacher)) {
+        firebase
+          .database()
+          .ref(`counts/${userName}`)
+          .update({
+            primaryTerrific: firebase.database.ServerValue.increment(-1),
+          });
+      } else {
+        firebase
+          .database()
+          .ref(`counts/${userName}`)
+          .update({
+            intermediateTerrific: firebase.database.ServerValue.increment(-1),
+          });
+      }
     }
   }
 

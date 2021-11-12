@@ -4,6 +4,8 @@ import "firebase/database";
 import FormHeader from "../components/Formheader";
 import StudentForm from "../components/StudentForm";
 import UserForm from "../components/UserForm";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import { FooterDiv } from "../styles/manageusersstyles.js";
 
 const ManageUsers = () => {
@@ -21,6 +23,8 @@ const ManageUsers = () => {
 
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
   const [arrayOfUsers, setArrayOfUsers] = useState([]);
+  const [countUser, setCountUser] = useState("");
+  const [countName, setCountName] = useState("");
 
   function addStudent(student) {
     firebase
@@ -83,18 +87,31 @@ const ManageUsers = () => {
     firebase.database().ref(`users/${name}`).remove();
   }
 
+  function addCount(evt, count, name) {
+    evt.preventDefault();
+    evt.stopPropagation();
+    firebase
+      .database()
+      .ref(`counts/${count}`)
+      .update({
+        [name]: 0,
+      });
+    setCountUser("");
+    setCountName("");
+  }
+
   useEffect(() => {
     let students;
     students = firebase.database().ref("classroom");
-    students.on("value", function (snapshot) {
-      setArrayOfStudents([]);
-      snapshot.forEach(function (childNodes) {
-        childNodes.forEach(function (childNode) {
-          const newEntry = { ...childNode.val() };
-          setArrayOfStudents((prevState) => [...prevState, newEntry]);
-        });
-      });
-    });
+    // students.on("value", function (snapshot) {
+    //   setArrayOfStudents([]);
+    //   snapshot.forEach(function (childNodes) {
+    //     childNodes.forEach(function (childNode) {
+    //       const newEntry = { ...childNode.val() };
+    //       setArrayOfStudents((prevState) => [...prevState, newEntry]);
+    //     });
+    //   });
+    // });
     let users;
     users = firebase.database().ref("users");
     users.on("value", function (snapshot) {
@@ -148,6 +165,34 @@ const ManageUsers = () => {
         sort={setSortedField}
       ></FormHeader>
       {userRows}
+
+      <Form>
+        <Form.Group className="mb-3" controlId="formCountUser">
+          <Form.Label>Count User</Form.Label>
+          <Form.Control
+            type="text"
+            value={countUser}
+            onChange={(e) => setCountUser(e.target.value)}
+            placeholder="Enter Count User"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formCountName">
+          <Form.Label>Count Name</Form.Label>
+          <Form.Control
+            type="text"
+            value={countName}
+            onChange={(e) => setCountName(e.target.value)}
+            placeholder="Enter Count Name"
+          />
+        </Form.Group>
+        <Button
+          variant="primary"
+          type="button"
+          onClick={(e) => addCount(e, countUser, countName)}
+        >
+          Submit
+        </Button>
+      </Form>
       <FooterDiv></FooterDiv>
     </>
   );

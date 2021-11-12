@@ -1,23 +1,17 @@
-import AwardForm from "../components/awardform";
 import { useEffect, useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import firebase from "firebase/app";
 import "firebase/database";
 import {
-  primaryTeachers,
-  intermediateTeachers,
   teachers,
   bandTeachers,
   specialists,
   currentQuarter,
+  generateCard,
 } from "../components/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import {
-  StyledCard,
-  CardImg,
-  CardBody,
-  CardTitle,
   TeacherHeading,
   TeacherHeadingDiv,
   StyledHr,
@@ -36,22 +30,23 @@ const Awards = ({ userName }) => {
     userName = "Michelle Medina";
   }
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
+  const [objectOfStudents, setObjectOfStudents] = useState({});
   const [userInfo, setUserInfo] = useState({});
   const [collapsed, setCollapsed] = useState({
-    "Angel Martin": false,
-    "Kaitlyn Johnson": false,
-    "Jamie Estep": false,
-    "Kathy Dilley": false,
-    "Annalisa Lang": false,
-    "Kellie Terpstra": false,
-    "Kim Pederson": false,
-    "Trista Haberman": false,
-    "Claude Kranik": false,
-    "Kabrina Kidd": false,
-    "Nathan Lenhart": false,
-    "Michelle Medina": false,
-    "Kristin Helle": false,
-    "Kelly Kidd": false,
+    "Angel Martin": true,
+    "Kaitlyn Johnson": true,
+    "Jamie Estep": true,
+    "Kathy Dilley": true,
+    "Annalisa Lang": true,
+    "Kellie Terpstra": true,
+    "Kim Pederson": true,
+    "Trista Haberman": true,
+    "Claude Kranik": true,
+    "Kabrina Kidd": true,
+    "Nathan Lenhart": true,
+    "Michelle Medina": true,
+    "Kristin Helle": true,
+    "Kelly Kidd": true,
   });
   let StudentCards = {};
   const [disableRespect, setDisableRespect] = useState(false);
@@ -83,42 +78,24 @@ const Awards = ({ userName }) => {
     ) {
       students = firebase.database().ref("classroom");
       students.on("value", function (snapshot) {
-        setArrayOfStudents([]);
-        setIntermediateTerrificCount(0);
-        setPrimaryTerrificCount(0);
-        setIntermediateCommunityCount(0);
-        setPrimaryCommunityCount(0);
-        snapshot.forEach(function (childNodes) {
-          childNodes.forEach(function (childNode) {
-            const newEntry = { ...childNode.val() };
-            setArrayOfStudents((prevState) => [...prevState, newEntry]);
-
-            // Set Terrific Kid Counts
-            if (childNode.val().terrificKid) {
-              if (
-                childNode.val().terrificKidChosenBy === userName &&
-                intermediateTeachers.includes(childNode.val().classroom)
-              ) {
-                setIntermediateTerrificCount((prevState) => prevState + 1);
-              } else if (
-                childNode.val().terrificKidChosenBy === userName &&
-                primaryTeachers.includes(childNode.val().classroom)
-              ) {
-                setPrimaryTerrificCount((prevState) => prevState + 1);
-              }
-            }
-
-            // Set Community Kid Counts
-            if (childNode.val().cougarCommunityService) {
-              if (intermediateTeachers.includes(childNode.val().classroom)) {
-                setIntermediateCommunityCount((prevState) => prevState + 1);
-              } else if (primaryTeachers.includes(childNode.val().classroom)) {
-                setPrimaryCommunityCount((prevState) => prevState + 1);
-              }
-            }
-          });
-        });
+        setObjectOfStudents(snapshot.val());
       });
+      firebase
+        .database()
+        .ref("counts/cougarCommunityService")
+        .on("value", function (snapshot) {
+          setPrimaryCommunityCount(snapshot.val().primary);
+          setIntermediateCommunityCount(snapshot.val().intermediate);
+        });
+      if (specialists.includes(userName)) {
+        firebase
+          .database()
+          .ref(`counts/${userName}`)
+          .on("value", function (snapshot) {
+            setIntermediateTerrificCount(snapshot.val().intermediateTerrific);
+            setPrimaryTerrificCount(snapshot.val().primaryTerrific);
+          });
+      }
     } else {
       students = firebase.database().ref(`classroom/${userName}`);
       students.on("value", function (snapshot) {
@@ -193,46 +170,45 @@ const Awards = ({ userName }) => {
     primaryCommunityCount,
   ]);
 
-  // Generate StudentCards for each teacher
-  for (const teacher of teachers) {
-    StudentCards[teacher] = arrayOfStudents.map((student) => {
-      if (student.classroom === teacher) {
-        return (
-          <StyledCard key={student.id}>
-            <CardImg src={student.imageUrl} />
-            <CardBody>
-              <CardTitle>{student.name}</CardTitle>
-              <AwardForm
-                id={student.id}
-                disableRespect={disableRespect}
-                disableResponsibility={disableResponsibility}
-                disableRelationship={disableRelationship}
-                disableSpiritualTheme={disableSpiritualTheme}
-                disableOutstanding={disableOutstanding}
-                teacher={student.classroom}
-                spiritualThemeAward={student.spiritualTheme}
-                outstandingAchievement={student.outstandingAchievement}
-                wowAward={student.wowAward}
-                cougarCommunityService={student.cougarCommunityService}
-                communityServiceChosenBy={student.communityServiceChosenBy}
-                disableCommunityPrimary={disableCommunityPrimary}
-                disableCommunityIntermediate={disableCommunityIntermediate}
-                terrificKid={student.terrificKid}
-                terrificKidChosenBy={student.terrificKidChosenBy}
-                disableTerrificPrimary={disableTerrificPrimary}
-                disableTerrificIntermediate={disableTerrificIntermediate}
-                acceleratedReader={student.acceleratedReader}
-                words={student.words}
-                threeR={student.threeR}
-                userName={userName}
-                role={userInfo.role}
-                pastAwards={student.pastAwards}
-              />
-            </CardBody>
-          </StyledCard>
-        );
-      } else return null;
-    });
+  if (userInfo.role === "teacher") {
+    // Generate StudentCards for Single Teacher
+    StudentCards = arrayOfStudents.map((student) =>
+      generateCard(
+        student,
+        disableRespect,
+        disableResponsibility,
+        disableRelationship,
+        disableSpiritualTheme,
+        disableOutstanding,
+        disableCommunityPrimary,
+        disableCommunityIntermediate,
+        disableTerrificPrimary,
+        disableTerrificIntermediate,
+        userName,
+        userInfo.role
+      )
+    );
+  } else {
+    // Generate StudentCards for each teacher
+    for (const teacher in objectOfStudents) {
+      StudentCards[teacher] = Object.values(objectOfStudents[teacher]).map(
+        (student) =>
+          generateCard(
+            student,
+            disableRespect,
+            disableResponsibility,
+            disableRelationship,
+            disableSpiritualTheme,
+            disableOutstanding,
+            disableCommunityPrimary,
+            disableCommunityIntermediate,
+            disableTerrificPrimary,
+            disableTerrificIntermediate,
+            userName,
+            userInfo.role
+          )
+      );
+    }
   }
 
   const BandClasses = bandTeachers.map((teacher) => {
@@ -290,7 +266,7 @@ const Awards = ({ userName }) => {
   const SingleClass = (
     <div>
       <TeacherHeading>{userName}</TeacherHeading>
-      {StudentCards[userName]}
+      {StudentCards}
     </div>
   );
 

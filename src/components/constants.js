@@ -1,4 +1,11 @@
 import moment from "moment";
+import {
+  StyledCard,
+  CardImg,
+  CardBody,
+  CardTitle,
+} from "../styles/awardstyles";
+import AwardForm from "../components/awardform";
 
 export function currentQuarter() {
   if (moment().isBefore("2021-12-20")) {
@@ -135,4 +142,54 @@ export function determineSpecialistSignature(teacher) {
       console.log(`Sorry ${teacher} not found.`);
       break;
   }
+}
+
+export function generateCard(
+  student,
+  disableRespect,
+  disableResponsibility,
+  disableRelationship,
+  disableSpiritualTheme,
+  disableOutstanding,
+  disableCommunityPrimary,
+  disableCommunityIntermediate,
+  disableTerrificPrimary,
+  disableTerrificIntermediate,
+  userName,
+  userInfoRole
+) {
+  return (
+    <StyledCard key={student.id}>
+      <CardImg src={student.imageUrl} />
+      <CardBody>
+        <CardTitle>{student.name}</CardTitle>
+        <AwardForm
+          id={student.id}
+          disableRespect={disableRespect}
+          disableResponsibility={disableResponsibility}
+          disableRelationship={disableRelationship}
+          disableSpiritualTheme={disableSpiritualTheme}
+          disableOutstanding={disableOutstanding}
+          teacher={student.classroom}
+          spiritualThemeAward={student.spiritualTheme}
+          outstandingAchievement={student.outstandingAchievement}
+          wowAward={student.wowAward}
+          cougarCommunityService={student.cougarCommunityService}
+          communityServiceChosenBy={student.communityServiceChosenBy}
+          disableCommunityPrimary={disableCommunityPrimary}
+          disableCommunityIntermediate={disableCommunityIntermediate}
+          terrificKid={student.terrificKid}
+          terrificKidChosenBy={student.terrificKidChosenBy}
+          disableTerrificPrimary={disableTerrificPrimary}
+          disableTerrificIntermediate={disableTerrificIntermediate}
+          acceleratedReader={student.acceleratedReader}
+          words={student.words}
+          threeR={student.threeR}
+          userName={userName}
+          role={userInfoRole}
+          pastAwards={student.pastAwards}
+        />
+      </CardBody>
+    </StyledCard>
+  );
 }
