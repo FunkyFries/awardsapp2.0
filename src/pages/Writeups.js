@@ -118,7 +118,6 @@ const WriteUps = ({ userName }) => {
     e.preventDefault();
     for (let i = 0; i < e.target.length - 1; i++) {
       if (e.target[i].value.length > 0) {
-        console.log(e.target[i].teacher);
         if (userInfo.role === "teacher") {
           firebase
             .database()
@@ -148,7 +147,11 @@ const WriteUps = ({ userName }) => {
         } else {
           firebase
             .database()
-            .ref(`classroom/${e.target[i].teacher}/${e.target[i].id}`)
+            .ref(
+              `classroom/${e.target[i].getAttribute("teacher")}/${
+                e.target[i].id
+              }`
+            )
             .update({ terrificKidWriteup: e.target[i].value }, (error) => {
               if (error) {
                 // The write failed...
@@ -184,7 +187,6 @@ const WriteUps = ({ userName }) => {
       a.name > b.name ? 1 : -1
     );
   }
-  console.log(filteredStudents);
 
   //Fix this!!! Create additional filters for Outstanding and All In and generate separate Write Up forms
 
@@ -200,7 +202,7 @@ const WriteUps = ({ userName }) => {
           writeUp = student.terrificKidWriteUp;
         } else if (student.cougarCommunityService) {
           writeUp = student.ccsWriteup;
-        } else if (student.allInAward) {
+        } else if (student.spiritualTheme) {
           writeUp = student.threeRWriteup;
         } else if (student.outstandingAchievement) {
           writeUp = student.threeRWriteup;

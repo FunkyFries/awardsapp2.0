@@ -20,8 +20,8 @@ const WriteUpForm = (student) => {
     awardName = `Terrific Kid chosen by ${student.terrificKidChosenBy}`;
   } else if (student.cougarCommunityService) {
     awardName = `Cougar Community Service chosen by ${student.communityServiceChosenBy}`;
-  } else if (student.allInAward) {
-    awardName = `Living Free chosen by ${student.classroom}`;
+  } else if (student.spiritualTheme) {
+    awardName = `Unshakeable chosen by ${student.classroom}`;
   } else if (student.outstandingAchievement) {
     awardName = `Outstanding Achievement chosen by ${student.classroom}`;
   } else {
@@ -62,6 +62,7 @@ const WriteUpForm = (student) => {
         </Form.Label>
         <Form.Control
           id={student.id}
+          teacher={student.classroom}
           as="textarea"
           rows={3}
           placeholder="Write those super words here!"
