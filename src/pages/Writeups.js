@@ -199,7 +199,7 @@ const WriteUps = ({ userName }) => {
         writeUp = student.ccsWriteup;
       } else if (userInfo.role === "admin") {
         if (student.terrificKid) {
-          writeUp = student.terrificKidWriteUp;
+          writeUp = student.terrificKidWriteup;
         } else if (student.cougarCommunityService) {
           writeUp = student.ccsWriteup;
         } else if (student.spiritualTheme) {
@@ -210,7 +210,7 @@ const WriteUps = ({ userName }) => {
           writeUp = student.threeRWriteup;
         }
       } else {
-        writeUp = student.terrificKidWriteUp;
+        writeUp = student.terrificKidWriteup;
       }
       return (
         <WriteUpForm
