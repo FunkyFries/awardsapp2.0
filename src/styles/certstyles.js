@@ -333,8 +333,9 @@ export const AllInH1 = styled.h1`
 `;
 
 export const AllInLogo = styled.img`
-  width: 70%;
+  width: 90%;
   display: flex;
+  text-align: center;
   margin: 0 auto;
   padding-top: 4rem;
   padding-bottom: 2rem;
@@ -342,6 +343,7 @@ export const AllInLogo = styled.img`
 
 export const AllInContainer = styled.div`
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   text-align: center;
   padding-top: 4rem;
@@ -367,7 +369,7 @@ export const AllInH5 = styled.h1`
 
 export const TerrificH1 = styled.h1`
   font-family: "Noto Sans", sans-serif;
-  font-size: 5rem;
+  font-size: 5vw;
   font-weight: 700;
   color: #062f5f;
   display: flex;

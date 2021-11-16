@@ -23,7 +23,7 @@ import {
   ThreeRWriteupTeacherDiv,
   ThreeRh5,
 } from "../styles/certstyles";
-import unshakeableLogo from "../styles/images/unshakeablelogo.png";
+import unshakeableLogo from "../styles/images/unshakeablealt.png";
 import Logo from "../styles/images/Logo.png";
 import { determineTeacherSignature } from "./constants";
 
