@@ -8,7 +8,7 @@ import {
 import AwardForm from "../components/awardform";
 
 export function currentQuarter() {
-  if (moment().isBefore("2021-12-20")) {
+  if (moment().isBefore("2022-01-24")) {
     return "First Quarter";
   } else if (moment().isBefore("2022-02-12")) {
     return "Second Quarter";

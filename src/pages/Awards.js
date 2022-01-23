@@ -66,6 +66,16 @@ const Awards = ({ userName }) => {
     useState(false);
   const [disableCommunityPrimary, setDisableCommunityPrimary] = useState(false);
 
+  function compare(a, b) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }
+
   useEffect(() => {
     let students;
     if (
@@ -191,22 +201,23 @@ const Awards = ({ userName }) => {
   } else {
     // Generate StudentCards for each teacher
     for (const teacher in objectOfStudents) {
-      StudentCards[teacher] = Object.values(objectOfStudents[teacher]).map(
-        (student) =>
-          generateCard(
-            student,
-            disableRespect,
-            disableResponsibility,
-            disableRelationship,
-            disableSpiritualTheme,
-            disableOutstanding,
-            disableCommunityPrimary,
-            disableCommunityIntermediate,
-            disableTerrificPrimary,
-            disableTerrificIntermediate,
-            userName,
-            userInfo.role
-          )
+      let arrayOfStudents = Object.values(objectOfStudents[teacher]);
+      arrayOfStudents.sort(compare);
+      StudentCards[teacher] = arrayOfStudents.map((student) =>
+        generateCard(
+          student,
+          disableRespect,
+          disableResponsibility,
+          disableRelationship,
+          disableSpiritualTheme,
+          disableOutstanding,
+          disableCommunityPrimary,
+          disableCommunityIntermediate,
+          disableTerrificPrimary,
+          disableTerrificIntermediate,
+          userName,
+          userInfo.role
+        )
       );
     }
   }

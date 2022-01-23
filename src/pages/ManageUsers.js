@@ -5,6 +5,7 @@ import FormHeader from "../components/Formheader";
 import StudentForm from "../components/StudentForm";
 import UserForm from "../components/UserForm";
 import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { FooterDiv } from "../styles/manageusersstyles.js";
 
@@ -25,6 +26,10 @@ const ManageUsers = () => {
   const [arrayOfUsers, setArrayOfUsers] = useState([]);
   const [countUser, setCountUser] = useState("");
   const [countName, setCountName] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   function addStudent(student) {
     firebase
@@ -103,15 +108,9 @@ const ManageUsers = () => {
   useEffect(() => {
     let students;
     students = firebase.database().ref("classroom");
-    // students.on("value", function (snapshot) {
-    //   setArrayOfStudents([]);
-    //   snapshot.forEach(function (childNodes) {
-    //     childNodes.forEach(function (childNode) {
-    //       const newEntry = { ...childNode.val() };
-    //       setArrayOfStudents((prevState) => [...prevState, newEntry]);
-    //     });
-    //   });
-    // });
+    students.once("value", function (snapshot) {
+      setArrayOfStudents(Object.values(snapshot.val()));
+    });
     let users;
     users = firebase.database().ref("users");
     users.on("value", function (snapshot) {
@@ -122,19 +121,20 @@ const ManageUsers = () => {
     });
   }, []);
 
-  let studentRows = arrayOfStudents
-    .sort(compare)
-    .map((student) => (
-      <StudentForm
-        key={student.id}
-        id={student.id}
-        name={student.name}
-        teacher={student.classroom}
-        image={student.imageUrl}
-        handleDelete={deleteStudent}
-        updateStudent={updateStudent}
-      ></StudentForm>
-    ));
+  let combinedStudents = Object.assign([], ...arrayOfStudents);
+  // let studentRows = combinedStudents
+  //   .sort(compare)
+  //   .map((student) => (
+  //     <StudentForm
+  //       key={student.id}
+  //       id={student.id}
+  //       name={student.name}
+  //       teacher={student.classroom}
+  //       image={student.imageUrl}
+  //       handleDelete={deleteStudent}
+  //       updateStudent={updateStudent}
+  //     ></StudentForm>
+  //   ));
 
   let userRows = arrayOfUsers.map((user) => (
     <UserForm
@@ -150,6 +150,63 @@ const ManageUsers = () => {
     ></UserForm>
   ));
 
+  function resetQuarter() {
+    let awardStudents = combinedStudents.filter(
+      (student) =>
+        student.threeR !== "none" ||
+        student.spiritualTheme ||
+        student.terrificKid ||
+        student.outstandingAchievement ||
+        student.cougarCommunityService ||
+        student.wowAward ||
+        student.acceleratedReader
+    );
+
+    handleClose();
+
+    // You'll need to use this after pastAwards is not empty!!
+    // let newPastAwards = awardStudents[0].pastAwards;
+    // newPastAwards.push("What up!");
+    // console.log(newPastAwards);
+
+    awardStudents.map((student) => {
+      let newPastAward = [""];
+      if (student.threeR !== "none") {
+        newPastAward = [student.threeR];
+      } else if (student.spiritualTheme) {
+        newPastAward = ["Unshakeable"];
+      } else if (student.terrificKid) {
+        newPastAward = [
+          `Terrific Kid chosen by ${student.terrificKidChosenBy}`,
+        ];
+      } else if (student.outstandingAchievement) {
+        newPastAward = ["Outstanding Achievement"];
+      } else if (student.cougarCommunityService) {
+        newPastAward = ["Cougar Community Service"];
+      }
+
+      return firebase
+        .database()
+        .ref(`classroom/${student.classroom}/${student.id}`)
+        .update({
+          spiritualTheme: false,
+          outstandingAchievement: false,
+          wowAward: false,
+          cougarCommunityService: false,
+          communityServiceChosenBy: "none",
+          ccsWriteup: "",
+          terrificKid: false,
+          terrificKidChosenBy: "none",
+          terrificKidWriteup: "",
+          threeR: "none",
+          threeRWriteup: "",
+          acceleratedReader: false,
+          words: 0,
+          pastAwards: newPastAward,
+        });
+    });
+  }
+
   return (
     <>
       <FormHeader
@@ -158,7 +215,7 @@ const ManageUsers = () => {
         add={addStudent}
         sort={setSortedField}
       ></FormHeader>
-      {studentRows}
+      {/* {studentRows} */}
       <FormHeader
         heading="Users"
         add={addUser}
@@ -193,6 +250,28 @@ const ManageUsers = () => {
           Submit
         </Button>
       </Form>
+
+      <Button variant="danger" className="mt-5" onClick={handleShow}>
+        Reset Quarter
+      </Button>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Are you sure?</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p>This can't be undone!! This is not a drill!</p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="danger" onClick={resetQuarter}>
+            Reset
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <FooterDiv></FooterDiv>
     </>
   );
