@@ -115,7 +115,7 @@ export function determineTeacherSignature(teacher) {
     case "Nathan Lenhart":
       return "Mr. Lenhart";
     case "Michelle Medina":
-      return "Mrs. Medina";
+      return "Mrs. Weber";
     case "Kelly Kidd":
       return "Mrs. Kidd";
     case "Kristin Helle":
