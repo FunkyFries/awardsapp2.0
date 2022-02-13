@@ -39,7 +39,7 @@ const WriteUps = ({ userName }) => {
       userName === "Jamaica Mulhern"
     ) {
       students = firebase.database().ref("classroom");
-      students.on("value", function (snapshot) {
+      students.once("value", function (snapshot) {
         setArrayOfStudents([]);
         snapshot.forEach(function (childNodes) {
           childNodes.forEach(function (childNode) {
@@ -58,7 +58,7 @@ const WriteUps = ({ userName }) => {
       });
     } else {
       students = firebase.database().ref(`classroom/${userName}`);
-      students.on("value", function (snapshot) {
+      students.once("value", function (snapshot) {
         setArrayOfStudents([]);
         snapshot.forEach(function (childNodes) {
           if (
@@ -74,7 +74,7 @@ const WriteUps = ({ userName }) => {
     }
     let user;
     user = firebase.database().ref(`users/${userName}`);
-    user.on("value", function (snapshot) {
+    user.once("value", function (snapshot) {
       setUserInfo(snapshot.val());
     });
   }, [userName]);
