@@ -164,25 +164,20 @@ const ManageUsers = () => {
 
     handleClose();
 
-    // You'll need to use this after pastAwards is not empty!!
-    // let newPastAwards = awardStudents[0].pastAwards;
-    // newPastAwards.push("What up!");
-    // console.log(newPastAwards);
-
     awardStudents.map((student) => {
-      let newPastAward = [""];
+      let newPastAward = student.pastAwards;
       if (student.threeR !== "none") {
-        newPastAward = [student.threeR];
+        newPastAward.push(student.threeR);
       } else if (student.spiritualTheme) {
-        newPastAward = ["Unshakeable"];
+        newPastAward.push("Unshakeable");
       } else if (student.terrificKid) {
-        newPastAward = [
-          `Terrific Kid chosen by ${student.terrificKidChosenBy}`,
-        ];
+        newPastAward.push(
+          `Terrific Kid chosen by ${student.terrificKidChosenBy}`
+        );
       } else if (student.outstandingAchievement) {
-        newPastAward = ["Outstanding Achievement"];
+        newPastAward.push("Outstanding Achievement");
       } else if (student.cougarCommunityService) {
-        newPastAward = ["Cougar Community Service"];
+        newPastAward.push("Cougar Community Service");
       }
 
       return firebase

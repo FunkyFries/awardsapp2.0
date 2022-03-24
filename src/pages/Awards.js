@@ -26,9 +26,6 @@ const Awards = ({ userName }) => {
   if (userName === "Breanne Jeffries") {
     userName = "Bre Jeffries";
   }
-  if (userName === "Kristal Weber") {
-    userName = "Michelle Medina";
-  }
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
   const [objectOfStudents, setObjectOfStudents] = useState({});
   const [userInfo, setUserInfo] = useState({});
@@ -36,7 +33,7 @@ const Awards = ({ userName }) => {
     "Angel Martin": true,
     "Kaitlyn Johnson": true,
     "Jamie Estep": true,
-    "Kathy Dilley": true,
+    "Kristal Weber": true,
     "Annalisa Lang": true,
     "Kellie Terpstra": true,
     "Kim Pederson": true,

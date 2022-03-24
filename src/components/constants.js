@@ -10,7 +10,7 @@ import AwardForm from "../components/awardform";
 export function currentQuarter() {
   if (moment().isBefore("2022-01-24")) {
     return "First Quarter";
-  } else if (moment().isBefore("2022-02-12")) {
+  } else if (moment().isBefore("2022-03-26")) {
     return "Second Quarter";
   } else if (moment().isBefore("2022-04-22")) {
     return "Third Quarter";
@@ -23,7 +23,7 @@ export const teachers = [
   "Angel Martin",
   "Kaitlyn Johnson",
   "Jamie Estep",
-  "Kathy Dilley",
+  "Kristal Weber",
   "Annalisa Lang",
   "Kellie Terpstra",
   "Kim Pederson",
@@ -40,7 +40,7 @@ export const primaryTeachers = [
   "Angel Martin",
   "Kaitlyn Johnson",
   "Jamie Estep",
-  "Kathy Dilley",
+  "Kristal Weber",
   "Annalisa Lang",
   "Kellie Terpstra",
 ];
@@ -71,7 +71,7 @@ export const specialists = [
 export function determineGrade(classroom) {
   if (classroom === "Angel Martin" || classroom === "Kaitlyn Johnson") {
     return "Kindergarten";
-  } else if (classroom === "Kathy Dilley" || classroom === "Jamie Estep") {
+  } else if (classroom === "Kristal Weber" || classroom === "Jamie Estep") {
     return "First Grade";
   } else if (classroom === "Kellie Terpstra" || classroom === "Annalisa Lang") {
     return "Second Grade";
@@ -98,8 +98,8 @@ export function determineTeacherSignature(teacher) {
       return "Mrs. Johnson";
     case "Jamie Estep":
       return "Mrs. Estep";
-    case "Kathy Dilley":
-      return "Mrs. Dilley";
+    case "Kristal Weber":
+      return "Mrs. Weber";
     case "Kellie Terpstra":
       return "Ms. Terpstra";
     case "Annalisa Lang":
