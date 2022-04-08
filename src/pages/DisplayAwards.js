@@ -159,11 +159,13 @@ const DisplayAwards = ({ userName }) => {
       </>
     );
     if (terrificKids.length === 3) {
-      <>
-        <td>{terrificKids[0].name}</td>
-        <td>{terrificKids[1].name}</td>
-        <td>{terrificKids[2].name}</td>
-      </>;
+      terrific = (
+        <>
+          <td>{terrificKids[0].name}</td>
+          <td>{terrificKids[1].name}</td>
+          <td>{terrificKids[2].name}</td>
+        </>
+      );
     }
     if (terrificKids.length === 2) {
       terrific = (
