@@ -534,7 +534,7 @@ const DisplayAwards = ({ userName }) => {
                 <th>Responsibility</th>
                 <th>Unshakeable</th>
                 <th>Oustanding Achievement</th>
-                <th colSpan={2}>Terrific Kid</th>
+                <th colSpan={3}>Terrific Kid</th>
                 <th>Community Service</th>
                 <th>AR</th>
               </tr>
