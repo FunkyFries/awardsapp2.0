@@ -12,7 +12,7 @@ export function currentQuarter() {
     return "First Quarter";
   } else if (moment().isBefore("2022-03-20")) {
     return "Second Quarter";
-  } else if (moment().isBefore("2022-04-22")) {
+  } else if (moment().isBefore("2022-05-23")) {
     return "Third Quarter";
   } else {
     return "Fourth Quarter";
@@ -66,6 +66,7 @@ export const specialists = [
   "Denise Sievers",
   "Bryan Botka",
   "Rene Perry",
+  "Kirsten Howard",
 ];
 
 export function determineGrade(classroom) {
@@ -138,6 +139,8 @@ export function determineSpecialistSignature(teacher) {
       return "Mrs. Jeffries";
     case "Rene Perry":
       return "Ms. Perry";
+    case "Kirsten Howard":
+      return "Miss Kiki";
     default:
       console.log(`Sorry ${teacher} not found.`);
       break;
