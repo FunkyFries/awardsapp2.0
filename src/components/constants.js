@@ -898,3 +898,46 @@ export const bibleVerses = {
   "Zechariah 7:9":
     'This is what the LORD Almighty said: "Administer true justice; show mercy and compassion to one another."',
 };
+
+export const elcOne = [
+  { name: "Vera Valos", classroom: "ELC 1" },
+  { name: "Beau Baker", classroom: "ELC 1" },
+  { name: "Tony Bargo", classroom: "ELC 1" },
+  { name: "Fiona Barnett", classroom: "ELC 1" },
+  { name: "Emmett Belin", classroom: "ELC 1" },
+  { name: "Kendall Byers", classroom: "ELC 1" },
+  { name: "Payslee Cantu", classroom: "ELC 1" },
+  { name: "Tierney Church", classroom: "ELC 1" },
+  { name: "Ann-Elisheba Dossou", classroom: "ELC 1" },
+  { name: "Evan Levtzow", classroom: "ELC 1" },
+  { name: "Alexandria Maroney", classroom: "ELC 1" },
+  { name: "Alayna Medina", classroom: "ELC 1" },
+  { name: "Violet Morlin", classroom: "ELC 1" },
+  { name: "Nicole Morozov", classroom: "ELC 1" },
+  { name: "Aiden Philebaum", classroom: "ELC 1" },
+  { name: "Elise Rogers", classroom: "ELC 1" },
+  { name: "Harley Seay", classroom: "ELC 1" },
+  { name: "Aubrey Villa", classroom: "ELC 1" },
+  { name: "Matthew Volosciuc", classroom: "ELC 1" },
+  { name: "Orel Wombo Lokaso", classroom: "ELC 1" },
+];
+
+export const elcTwo = [
+  { name: "Keira Adamson", classroom: "ELC 2" },
+  { name: "Annabelle Babler", classroom: "ELC 2" },
+  { name: "Dami Dickinson", classroom: "ELC 2" },
+  { name: "Lincoln Gerber", classroom: "ELC 2" },
+  { name: "Laney Jones", classroom: "ELC 2" },
+  { name: "Naomi Kimble", classroom: "ELC 2" },
+  { name: "Mila Moses", classroom: "ELC 2" },
+  { name: "JoAhn Namkung", classroom: "ELC 2" },
+  { name: "Maya Roberts", classroom: "ELC 2" },
+  { name: "Donald Shorter", classroom: "ELC 2" },
+  { name: "Jahkobi Stephens", classroom: "ELC 2" },
+  { name: "Eben Van Zijl", classroom: "ELC 2" },
+  { name: "Ronan Wells", classroom: "ELC 2" },
+  { name: "Baya Wolf", classroom: "ELC 2" },
+  { name: "Macy Wray", classroom: "ELC 2" },
+  { name: "Mia Wray", classroom: "ELC 2" },
+  { name: "Kaylah-Joy Yanogo", classroom: "ELC 2" },
+];

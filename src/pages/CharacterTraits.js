@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/database";
 import TraitForm from "../components/characterTraitForm";
-import { teachers } from "../components/constants";
+import { teachers, elcOne, elcTwo } from "../components/constants";
 import {
   BackgroundDiv,
   DisplayAwardsContainer,
@@ -18,13 +18,13 @@ const CharacterTraits = ({ userName }) => {
   const [printAwardsTable, setPrintAwardsTable] = useState(false);
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
   const [userInfo, setUserInfo] = useState({});
-  const [teacher, setTeacher] = useState("Angel Martin");
+  const [teacher, setTeacher] = useState("");
 
   useEffect(() => {
     let students;
     students = firebase.database().ref("classroom");
     students.once("value", function (snapshot) {
-      setArrayOfStudents([]);
+      setArrayOfStudents([...elcOne, ...elcTwo]);
       snapshot.forEach(function (childNodes) {
         childNodes.forEach(function (childNode) {
           const newEntry = { ...childNode.val() };
@@ -76,6 +76,8 @@ const CharacterTraits = ({ userName }) => {
                     onChange={(e) => setTeacher(e.target.value)}
                   >
                     <option value="none" defaultChecked></option>
+                    <option value="ELC 1">ELC 1</option>
+                    <option value="ELC 2">ELC 2</option>
                     {teacherOptions}
                   </Form.Control>
                 </TopTableHeader>
