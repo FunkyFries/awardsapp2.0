@@ -386,3 +386,46 @@ export const WowH1 = styled.h1`
   margin: 0;
   letter-spacing: 0.4rem;
 `;
+
+export const SpiritualTraitTitle = styled.h2`
+  font-family: "Cormorant Garamond";
+  width: 100%;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: rgb(13, 39, 66);
+`;
+export const SpiritualTraitName = styled.h1`
+  font-family: "Cormorant Garamond";
+  width: 100%;
+  font-size: 5rem;
+  padding-top: 1rem;
+  color: rgb(13, 39, 66);
+`;
+
+export const SpiritualTraitDescription = styled.h3`
+  font-family: "Cormorant Garamond";
+  width: 100%;
+  font-size: 1.9rem;
+  color: rgb(13, 39, 66);
+`;
+
+export const SpiritualTrait = styled.h2`
+  font-family: "Pinyon Script", cursive;
+  font-size: 6rem;
+  color: rgb(13, 39, 66);
+`;
+
+export const SpiritualTraitVerse = styled.h3`
+  font-family: "Pinyon Script", cursive;
+  font-size: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+  color: rgb(13, 39, 66);
+`;
+
+export const SpiritualHr = styled.div`
+  height: 4px;
+  border-bottom: 3px solid rgb(0, 153, 153);
+  width: 55%;
+  margin: 0 auto;
+`;
