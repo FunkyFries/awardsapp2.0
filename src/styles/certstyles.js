@@ -240,7 +240,7 @@ export const OutstandingInnerBorder = styled.div`
 `;
 
 export const OutstandingOuterBorder = styled.div`
-  margin: 3rem;
+  margin: 2rem;
   padding: 0.5rem;
   display: flex;
   width: 100%;
@@ -390,14 +390,14 @@ export const WowH1 = styled.h1`
 export const SpiritualTraitTitle = styled.h2`
   font-family: "Cormorant Garamond";
   width: 100%;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: rgb(13, 39, 66);
 `;
 export const SpiritualTraitName = styled.h1`
   font-family: "Cormorant Garamond";
   width: 100%;
-  font-size: 5rem;
+  font-size: 4rem;
   padding-top: 1rem;
   color: rgb(13, 39, 66);
 `;
@@ -405,20 +405,20 @@ export const SpiritualTraitName = styled.h1`
 export const SpiritualTraitDescription = styled.h3`
   font-family: "Cormorant Garamond";
   width: 100%;
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   color: rgb(13, 39, 66);
 `;
 
 export const SpiritualTrait = styled.h2`
   font-family: "Pinyon Script", cursive;
-  font-size: 6rem;
+  font-size: 5rem;
   color: rgb(13, 39, 66);
 `;
 
 export const SpiritualTraitVerse = styled.h3`
   font-family: "Pinyon Script", cursive;
   font-size: 1.5rem;
-  width: 100%;
+  width: 97%;
   margin: 0 auto;
   color: rgb(13, 39, 66);
 `;

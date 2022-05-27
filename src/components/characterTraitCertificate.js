@@ -41,10 +41,16 @@ const SpiritualTraitCertificate = ({ name, trait, verse, verseText }) => {
                 <SpiritualTraitDescription>
                   is being awarded the character quality of
                 </SpiritualTraitDescription>
-                <SpiritualTrait style={{ paddingTop: "1rem" }}>
+                <SpiritualTrait
+                  style={{
+                    marginTop: ".5rem",
+                    paddingBottom: 0,
+                    marginBottom: 0,
+                  }}
+                >
                   {trait}
                 </SpiritualTrait>
-                <SpiritualTraitVerse style={{ paddingTop: ".5rem" }}>
+                <SpiritualTraitVerse style={{ paddingTop: "0" }}>
                   {verseText} {verse}
                 </SpiritualTraitVerse>
               </AllInContainer>
