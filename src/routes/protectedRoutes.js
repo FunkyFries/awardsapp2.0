@@ -3,6 +3,7 @@ import Awards from "../pages/Awards";
 import Writeups from "../pages/Writeups";
 import DisplayAwards from "../pages/DisplayAwards";
 import ManageUsers from "../pages/ManageUsers";
+import CharacterTraits from "../pages/CharacterTraits";
 
 const protectedRoutes = [
   {
@@ -24,6 +25,13 @@ const protectedRoutes = [
     exact: true,
     path: "/displayawards",
     main: (props) => <DisplayAwards {...props} />,
+    public: false,
+  },
+  {
+    name: "charactertraits",
+    exact: true,
+    path: "/charactertraits",
+    main: (props) => <CharacterTraits {...props} />,
     public: false,
   },
   {
