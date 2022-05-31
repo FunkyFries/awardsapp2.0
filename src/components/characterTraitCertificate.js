@@ -17,6 +17,7 @@ import {
   SpiritualTrait,
   SpiritualHr,
 } from "../styles/certstyles";
+import { elcStudents } from "./constants";
 import unshakeableLogo from "../styles/images/unshakeablealt.png";
 import Logo from "../styles/images/Logo.png";
 
@@ -29,7 +30,12 @@ const SpiritualTraitCertificate = ({ name, trait, verse, verseText }) => {
             <OutstandingInnerBorder>
               <AllInContainer style={{ paddingTop: "1rem" }}>
                 <SpiritualTraitTitle>
-                  Cascade Christian Schools <i>Frederickson Elementary</i>
+                  Cascade Christian Schools{" "}
+                  <i>
+                    {elcStudents.includes(name)
+                      ? "Frederickson ELC"
+                      : "Frederickson Elementary"}
+                  </i>
                 </SpiritualTraitTitle>
                 <AllInLogo
                   style={{ paddingTop: "2rem", paddingBottom: "1rem" }}
@@ -59,7 +65,9 @@ const SpiritualTraitCertificate = ({ name, trait, verse, verseText }) => {
                 <ThreeRHR />
               </ThreeRSignatures>
               <ThreeRSignatures style={{ width: "100%" }}>
-                <h6>Principal</h6>
+                <h6>
+                  {elcStudents.includes(name) ? "Supervisor" : "Principal"}
+                </h6>
                 <h6>Teacher</h6>
               </ThreeRSignatures>
             </OutstandingInnerBorder>
