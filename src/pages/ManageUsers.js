@@ -165,6 +165,7 @@ const ManageUsers = () => {
     handleClose();
 
     awardStudents.map((student) => {
+      console.log(student.name);
       let newPastAward = student.pastAwards;
       if (student.threeR !== "none") {
         newPastAward.push(student.threeR);

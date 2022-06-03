@@ -34,7 +34,7 @@ const AllInCertificate = ({ students, currentQuarter }) => {
         <CertDiv>
           <ThreeRContainer style={{ flexWrap: "wrap" }}>
             <OutstandingOuterBorder>
-              <OutstandingInnerBorder>
+              <OutstandingInnerBorder style={{ width: "100%" }}>
                 <AllInContainer>
                   <AllInH5 style={{ color: "#000" }}>
                     Frederickson Elementary

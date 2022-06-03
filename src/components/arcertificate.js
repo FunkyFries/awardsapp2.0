@@ -27,7 +27,7 @@ const ArCertificate = ({ students, currentQuarter }) => {
       <CertDiv key={student.id}>
         <ThreeRContainer>
           <OutstandingOuterBorder>
-            <OutstandingInnerBorder>
+            <OutstandingInnerBorder style={{ width: "100%", margin: "0 auto" }}>
               <div style={{ display: "inline" }}>
                 <H1>AR Reader of the Quarter</H1>
                 <H4>presented to</H4>
