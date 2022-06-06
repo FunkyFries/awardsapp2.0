@@ -429,3 +429,36 @@ export const SpiritualHr = styled.div`
   width: 55%;
   margin: 0 auto;
 `;
+
+export const PromotionCCS = styled.img`
+  width: 60%;
+  display: flex;
+  margin: 1rem auto;
+`;
+
+export const PromotionSeal = styled.img`
+  display: flex;
+  width: 12%;
+  align-self: flex-end;
+  z-index: 11;
+  position: absolute;
+  padding-bottom: 4rem;
+`;
+
+export const CrayonsBackground = styled.img`
+  display: flex;
+  width: 23%;
+  align-self: flex-end;
+  z-index: 5;
+  position: absolute;
+  padding-bottom: 4.2rem;
+`;
+
+export const PromotionH1 = styled.h1`
+  width: 100%;
+  font-size: 2.5rem;
+  color: #062f5f;
+  text-align: center;
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+`;

@@ -8,6 +8,8 @@ import CommunityServiceCertificate from "../components/communityservicecertifica
 import AllInCertificate from "../components/allincertificate";
 import WowCertificate from "../components/wowcertificate";
 import TerrificKidCertificate from "../components/terrifickidcertificate";
+import SixthGradeCertificate from "../components/sixthPromotion";
+import KinderCertificate from "../components/kinderPromotion";
 import Button from "react-bootstrap/Button";
 import {
   teachers,
@@ -30,13 +32,15 @@ import {
 import Form from "react-bootstrap/Form";
 
 const DisplayAwards = ({ userName }) => {
-  const [printThreeR, setPrintThreeR] = useState(true);
-  const [printAllIn, setPrintAllIn] = useState(true);
-  const [printOutstanding, setPrintOutstanding] = useState(true);
-  const [printWow, setPrintWow] = useState(true);
-  const [printCommunityService, setPrintCommunityService] = useState(true);
-  const [printTerrific, setPrintTerrific] = useState(true);
-  const [printAR, setPrintAR] = useState(true);
+  const [printThreeR, setPrintThreeR] = useState(false);
+  const [printAllIn, setPrintAllIn] = useState(false);
+  const [printOutstanding, setPrintOutstanding] = useState(false);
+  const [printWow, setPrintWow] = useState(false);
+  const [printCommunityService, setPrintCommunityService] = useState(false);
+  const [printTerrific, setPrintTerrific] = useState(false);
+  const [printAR, setPrintAR] = useState(false);
+  const [printSixth, setPrintSixth] = useState(false);
+  const [printKinder, setPrintKinder] = useState(false);
   const [printAwardsTable, setPrintAwardsTable] = useState(false);
   const [arrayOfStudents, setArrayOfStudents] = useState([]);
   const [userInfo, setUserInfo] = useState({});
@@ -92,6 +96,18 @@ const DisplayAwards = ({ userName }) => {
 
   const communityServiceStudents = arrayOfStudents.filter(
     (student) => student.cougarCommunityService
+  );
+
+  const sixthStudents = arrayOfStudents.filter(
+    (student) =>
+      student.classroom === "Kristin Helle" ||
+      student.classroom === "Kelly Kidd"
+  );
+
+  const kinderStudents = arrayOfStudents.filter(
+    (student) =>
+      student.classroom === "Kaitlyn Johnson" ||
+      student.classroom === "Angel Martin"
   );
 
   const wowStudents = arrayOfStudents
@@ -433,6 +449,8 @@ const DisplayAwards = ({ userName }) => {
           currentQuarter={currentQuarter()}
         />
       ) : null}
+      {printSixth ? <SixthGradeCertificate students={sixthStudents} /> : null}
+      {printKinder ? <KinderCertificate students={kinderStudents} /> : null}
       <BackgroundDiv className={printAwardsTable ? "" : "d-print-none"}>
         <DisplayAwardsContainer>
           {userInfo.role === "admin" ? (
@@ -497,6 +515,20 @@ const DisplayAwards = ({ userName }) => {
                   id="printArCertificates"
                   onChange={() => setPrintAR(!printAR)}
                   checked={printAR}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label="Sixth Certificates"
+                  id="printSixthCertificates"
+                  onChange={() => setPrintSixth(!printSixth)}
+                  checked={printSixth}
+                />
+                <Form.Check
+                  type="checkbox"
+                  label="Kinder Certificates"
+                  id="printKinderCertificates"
+                  onChange={() => setPrintKinder(!printKinder)}
+                  checked={printKinder}
                 />
                 <Form.Check
                   type="checkbox"
