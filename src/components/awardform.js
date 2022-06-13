@@ -179,8 +179,8 @@ const AwardForm = ({
     }
   }
 
-  const pastAwardsList = pastAwards.map((award) => (
-    <li key={award}>{award}</li>
+  const pastAwardsList = pastAwards.map((award, i) => (
+    <li key={(award, i)}>{award}</li>
   ));
 
   return (

@@ -165,8 +165,11 @@ const ManageUsers = () => {
     handleClose();
 
     awardStudents.map((student) => {
-      console.log(student.name);
       let newPastAward = student.pastAwards;
+      if (student.pastAwards[0] === "") {
+        newPastAward = [];
+      }
+
       if (student.threeR !== "none") {
         newPastAward.push(student.threeR);
       } else if (student.spiritualTheme) {
@@ -181,6 +184,12 @@ const ManageUsers = () => {
         newPastAward.push("Cougar Community Service");
       }
 
+      if (student.wowAward) {
+        newPastAward.push("Wow Award");
+      }
+      if (student.acceleratedReader) {
+        newPastAward.push("Reader of the Quarter");
+      }
       return firebase
         .database()
         .ref(`classroom/${student.classroom}/${student.id}`)

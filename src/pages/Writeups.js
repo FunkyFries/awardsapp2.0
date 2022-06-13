@@ -131,7 +131,11 @@ const WriteUps = ({ userName }) => {
         } else if (userInfo.role === "community") {
           firebase
             .database()
-            .ref(`classroom/${e.target[i].teacher}/${e.target[i].id}`)
+            .ref(
+              `classroom/${e.target[i].getAttribute("teacher")}/${
+                e.target[i].id
+              }`
+            )
             .update({ ccsWriteup: e.target[i].value }, (error) => {
               if (error) {
                 // The write failed...

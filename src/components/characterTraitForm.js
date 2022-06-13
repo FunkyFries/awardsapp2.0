@@ -9,9 +9,6 @@ import {
   BackgroundDiv,
   DisplayAwardsContainer,
   StyledTable,
-  TopTableHeader,
-  PageBreak,
-  PrintFormContainer,
 } from "../styles/displayawardstyles";
 import TraitCertificate from "../components/characterTraitCertificate";
 import "firebase/database";
