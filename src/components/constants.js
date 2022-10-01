@@ -8,11 +8,11 @@ import {
 import AwardForm from "../components/awardform";
 
 export function currentQuarter() {
-  if (moment().isBefore("2022-01-24")) {
+  if (moment().isBefore("2023-01-24")) {
     return "First Quarter";
-  } else if (moment().isBefore("2022-03-20")) {
+  } else if (moment().isBefore("2023-03-20")) {
     return "Second Quarter";
-  } else if (moment().isBefore("2022-05-23")) {
+  } else if (moment().isBefore("2023-05-23")) {
     return "Third Quarter";
   } else {
     return "Fourth Quarter";
@@ -21,37 +21,37 @@ export function currentQuarter() {
 
 export const teachers = [
   "Angel Martin",
-  "Kaitlyn Johnson",
+  "Kaitlyn Miller",
   "Jamie Estep",
-  "Kristal Weber",
+  "Janna White",
   "Annalisa Lang",
-  "Kellie Terpstra",
+  "Christine DeWaal",
   "Kim Pederson",
-  "Trista Haberman",
-  "Claude Kranik",
   "Kabrina Kidd",
+  "Claude Kranik",
   "Nathan Lenhart",
   "Michelle Medina",
+  "Tammy Akins",
   "Kristin Helle",
   "Kelly Kidd",
 ];
 
 export const primaryTeachers = [
   "Angel Martin",
-  "Kaitlyn Johnson",
+  "Kaitlyn Miller",
   "Jamie Estep",
-  "Kristal Weber",
+  "Janna White",
   "Annalisa Lang",
-  "Kellie Terpstra",
+  "Christine DeWaal",
 ];
 
 export const intermediateTeachers = [
   "Kim Pederson",
-  "Trista Haberman",
-  "Claude Kranik",
   "Kabrina Kidd",
+  "Claude Kranik",
   "Nathan Lenhart",
   "Michelle Medina",
+  "Tammy Akins",
   "Kristin Helle",
   "Kelly Kidd",
 ];
@@ -61,30 +61,29 @@ export const bandTeachers = ["Kelly Kidd", "Kristin Helle"];
 export const recessSpecialists = "Mrs. Raab & Mrs. Zaharevich";
 
 export const specialists = [
-  "Ryan Leach",
+  "Angela Tiegs",
   "Bre Jeffries",
-  "Denise Sievers",
+  "Jennifer Alexander",
   "Bryan Botka",
   "Rene Perry",
   "Kirsten Howard",
 ];
 
 export function determineGrade(classroom) {
-  if (classroom === "Angel Martin" || classroom === "Kaitlyn Johnson") {
+  if (classroom === "Angel Martin" || classroom === "Kaitlyn Miller") {
     return "Kindergarten";
-  } else if (classroom === "Kristal Weber" || classroom === "Jamie Estep") {
+  } else if (classroom === "Janna White" || classroom === "Jamie Estep") {
     return "First Grade";
-  } else if (classroom === "Kellie Terpstra" || classroom === "Annalisa Lang") {
-    return "Second Grade";
-  } else if (classroom === "Trista Haberman" || classroom === "Kim Pederson") {
-    return "Third Grade";
   } else if (
-    classroom === "Claude Kranik" ||
-    classroom === "Kabrina Kidd" ||
-    classroom === "Nathan Lenhart"
+    classroom === "Christine DeWaal" ||
+    classroom === "Annalisa Lang"
   ) {
+    return "Second Grade";
+  } else if (classroom === "Kabrina Kidd" || classroom === "Kim Pederson") {
+    return "Third Grade";
+  } else if (classroom === "Claude Kranik" || classroom === "Nathan Lenhart") {
     return "Fourth Grade";
-  } else if (classroom === "Michelle Medina") {
+  } else if (classroom === "Michelle Medina" || classroom === "Tammy Akins") {
     return "Fifth Grade";
   } else if (classroom === "Kelly Kidd" || classroom === "Kristin Helle") {
     return "Sixth Grade";
@@ -97,26 +96,28 @@ export function determineTeacherSignature(teacher) {
       return "Mrs. Martin";
     case "Kaitlyn Johnson":
       return "Mrs. Johnson";
+    case "Kaitlyn Miller":
+      return "Mrs. Miller";
     case "Jamie Estep":
       return "Mrs. Estep";
-    case "Kristal Weber":
-      return "Mrs. Weber";
-    case "Kellie Terpstra":
-      return "Ms. Terpstra";
+    case "Janna White":
+      return "Mrs. White";
+    case "Christine DeWaal":
+      return "Mrs. DeWaal";
     case "Annalisa Lang":
       return "Ms. Lang";
-    case "Trista Haberman":
-      return "Mrs. Haberman";
+    case "Kabrina Kidd":
+      return "Mrs. Kidd";
     case "Kim Pederson":
       return "Ms. Pederson";
     case "Claude Kranik":
       return "Mr. Kranik";
-    case "Kabrina Kidd":
-      return "Ms. Kidd";
     case "Nathan Lenhart":
       return "Mr. Lenhart";
     case "Michelle Medina":
       return "Mrs. Medina";
+    case "Tammy Akins":
+      return "Mrs. Akins";
     case "Kelly Kidd":
       return "Mrs. Kidd";
     case "Kristin Helle":
@@ -129,10 +130,10 @@ export function determineTeacherSignature(teacher) {
 
 export function determineSpecialistSignature(teacher) {
   switch (teacher) {
-    case "Ryan Leach":
-      return "Mr. Leach";
-    case "Denise Sievers":
-      return "Mrs. Sievers";
+    case "Angela Tiegs":
+      return "Mrs. Tiegs";
+    case "Jennifer Alexander":
+      return "Mrs. Alexander";
     case "Bryan Botka":
       return "Mr. Botka";
     case "Bre Jeffries":
