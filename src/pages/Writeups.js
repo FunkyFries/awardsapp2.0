@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import firebase from "firebase/app";
-import "firebase/database";
+import firebase from "firebase/compat/app";
+import "firebase/compat/database";
 import Toast from "react-bootstrap/Toast";
 import Button from "react-bootstrap/Button";
 import WriteUpForm from "../components/writeUpForm.js";

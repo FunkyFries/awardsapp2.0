@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Collapse from "react-bootstrap/Collapse";
-import firebase from "firebase/app";
-import "firebase/database";
+import firebase from "firebase/compat/app";
+import "firebase/compat/database";
 import {
   teachers,
   bandTeachers,

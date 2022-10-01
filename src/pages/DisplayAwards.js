@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import firebase from "firebase/app";
-import "firebase/database";
+import firebase from "firebase/compat/app";
+import "firebase/compat/database";
 import ArCertificate from "../components/arcertificate";
 import ThreeRCertificate from "../components/threeRcertificate";
 import OutstandingCertificate from "../components/outstandingcertificate";

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 import { firebaseConfig } from "./auth";
 import ProtectedRouteHoc from "./components/ProtectedRouteHoc";
 import protectedRoutes from "./routes/protectedRoutes";

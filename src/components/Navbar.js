@@ -2,14 +2,12 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import firebase from "firebase/app";
-import "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 
 const NavBar = ({ user }) => {
-  function signOut() {
-    firebase
-      .auth()
-      .signOut()
+  const auth = getAuth();
+  function logoff() {
+    signOut(auth)
       .then(function () {
         console.log("Signing out");
         return <Redirect to="/" />;
@@ -36,7 +34,7 @@ const NavBar = ({ user }) => {
           {user === "admin" ? (
             <Nav.Link href="/manageusers">Manage Users</Nav.Link>
           ) : null}
-          <Nav.Link href="#logout" onClick={signOut}>
+          <Nav.Link href="#logout" onClick={logoff}>
             Logout
           </Nav.Link>
         </Nav>
