@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import { AuthContext } from "../index";
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 import { StyledLogin, StyledButton } from "../styles/loginStyles/loginStyles";
 
 const Login = () => {

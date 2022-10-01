@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import firebase from "firebase/app";
-import "firebase/database";
+import firebase from "firebase/compat/app";
+import "firebase/compat/database";
 import TraitForm from "../components/characterTraitForm";
 import { teachers, elcOne, elcTwo } from "../components/constants";
 import {

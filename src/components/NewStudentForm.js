@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import firebase from "firebase/app";
-import "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 import Modal from "react-bootstrap/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -51,32 +50,31 @@ const NewStudentForm = ({ addStudent }) => {
     console.log("Removed");
   };
 
+  const db = getDatabase();
+
   const handleUpload = () => {
     if (studentUploadData.length > 0) {
       studentUploadData.forEach((row) => {
-        firebase
-          .database()
-          .ref(`classroom/${row.data[2]}/${row.data[0]}`)
-          .set({
-            id: row.data[0],
-            name: row.data[1],
-            classroom: row.data[2],
-            imageUrl: row.data[3],
-            spiritualTheme: false,
-            outstandingAchievement: false,
-            wowAward: false,
-            cougarCommunityService: false,
-            communityServiceChosenBy: "none",
-            ccsWriteup: "",
-            terrificKid: false,
-            terrificKidChosenBy: "none",
-            terrificKidWriteup: "",
-            threeR: "none",
-            threeRWriteup: "",
-            acceleratedReader: false,
-            words: 0,
-            pastAwards: [""],
-          });
+        set(ref(db, `classroom/${row.data[2]}/${row.data[0]}`), {
+          id: row.data[0],
+          name: row.data[1],
+          classroom: row.data[2],
+          imageUrl: row.data[3],
+          spiritualTheme: false,
+          outstandingAchievement: false,
+          wowAward: false,
+          cougarCommunityService: false,
+          communityServiceChosenBy: "none",
+          ccsWriteup: "",
+          terrificKid: false,
+          terrificKidChosenBy: "none",
+          terrificKidWriteup: "",
+          threeR: "none",
+          threeRWriteup: "",
+          acceleratedReader: false,
+          words: 0,
+          pastAwards: [""],
+        });
       });
       console.log("Upload complete!");
     } else {

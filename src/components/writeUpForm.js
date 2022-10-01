@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import firebase from "firebase/app";
-import "firebase/database";
+import firebase from "firebase/compat/app";
+import "firebase/compat/database";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
