@@ -50,7 +50,9 @@ const CharacterTraits = ({ userName }) => {
   }
 
   const teacherOptions = teachers.map((teacher) => (
-    <option value={teacher}>{teacher}</option>
+    <option key={teacher} value={teacher}>
+      {teacher}
+    </option>
   ));
 
   const selectedStudents = arrayOfStudents
@@ -58,7 +60,14 @@ const CharacterTraits = ({ userName }) => {
     .sort(compare);
 
   const studentRows = selectedStudents.map((student) => (
-    <TraitForm key={`traitForm${student.name}`} name={student.name}></TraitForm>
+    <TraitForm
+      key={`traitForm${student.name}`}
+      name={student.name}
+      teacher={student.classroom}
+      id={student.id}
+      dbCharacterTrait={student.characterTrait}
+      characterTraitVerse={student.characterTraitVerse}
+    ></TraitForm>
   ));
 
   return (

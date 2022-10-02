@@ -11,29 +11,64 @@ import {
   StyledTable,
 } from "../styles/displayawardstyles";
 import TraitCertificate from "../components/characterTraitCertificate";
+import { getDatabase, ref, update } from "firebase/database";
 
-const TraitForm = ({ name }) => {
-  const [characterTrait, setCharacterTrait] = useState("");
-  const [verseOptions, setVerseOptions] = useState([""]);
-  const [verseChosen, setVerseChosen] = useState("");
-  const [verseText, setVerseText] = useState("");
+const TraitForm = ({
+  name,
+  teacher,
+  id,
+  dbCharacterTrait,
+  characterTraitVerse,
+}) => {
+  const [characterTrait, setCharacterTrait] = useState(dbCharacterTrait);
+  const [verseOptions, setVerseOptions] = useState(
+    characterTraitsVerses[dbCharacterTrait]
+  );
+  const [verseChosen, setVerseChosen] = useState(characterTraitVerse);
+  const [verseText, setVerseText] = useState(bibleVerses[characterTraitVerse]);
+
+  const database = getDatabase();
 
   function handleChange(e) {
+    e.preventDefault();
     setCharacterTrait(e.target.value);
-    setVerseOptions(characterTraitsVerses[e.target.value]);
+    if (e.target.value !== "none") {
+      setVerseOptions(characterTraitsVerses[e.target.value]);
+    } else {
+      setVerseOptions([""]);
+      setVerseChosen("none");
+      setVerseText("");
+    }
+
+    update(ref(database, `classroom/${teacher}/${id}`), {
+      characterTrait: e.target.value,
+      characterTraitVerse: "none",
+    });
   }
 
   function handleVerseChosen(e) {
+    e.preventDefault();
     setVerseChosen(e.target.value);
-    setVerseText(bibleVerses[e.target.value]);
+    if (e.target.value !== "none") {
+      setVerseText(bibleVerses[e.target.value]);
+    } else {
+      setVerseText("");
+    }
+    update(ref(database, `classroom/${teacher}/${id}`), {
+      characterTraitVerse: e.target.value,
+    });
   }
 
   const traitOptions = characterTraits.map((trait) => (
-    <option value={trait}>{trait}</option>
+    <option key={trait} value={trait}>
+      {trait}
+    </option>
   ));
 
   const verseOptionsList = verseOptions.map((verse) => (
-    <option value={verse}>{verse}</option>
+    <option key={verse} value={verse}>
+      {verse}
+    </option>
   ));
   return (
     <>
@@ -46,32 +81,34 @@ const TraitForm = ({ name }) => {
       <BackgroundDiv className="d-print-none">
         <DisplayAwardsContainer>
           <StyledTable>
-            <tr style={{ margin: "0 auto" }}>
-              <td style={{ width: "20%" }}>{name}</td>
-              <td style={{ width: "20%" }}>
-                <Form.Control
-                  as="select"
-                  id={`Trait-${name}`}
-                  value={characterTrait}
-                  onChange={handleChange}
-                >
-                  <option value="" defaultChecked></option>
-                  {traitOptions}
-                </Form.Control>
-              </td>
-              <td style={{ width: "20%" }}>
-                <Form.Control
-                  as="select"
-                  id={`Verse-${name}`}
-                  value={verseChosen}
-                  onChange={handleVerseChosen}
-                >
-                  <option value="" defaultChecked></option>
-                  {verseOptionsList}
-                </Form.Control>
-              </td>
-              <td style={{ width: "40%" }}>{verseText}</td>
-            </tr>
+            <tbody>
+              <tr style={{ margin: "0 auto" }}>
+                <td style={{ width: "20%" }}>{name}</td>
+                <td style={{ width: "20%" }}>
+                  <Form.Control
+                    as="select"
+                    id={`Trait-${name}`}
+                    value={characterTrait}
+                    onChange={handleChange}
+                  >
+                    <option value="none" defaultChecked></option>
+                    {traitOptions}
+                  </Form.Control>
+                </td>
+                <td style={{ width: "20%" }}>
+                  <Form.Control
+                    as="select"
+                    id={`Verse-${name}`}
+                    value={verseChosen}
+                    onChange={handleVerseChosen}
+                  >
+                    <option value="none" defaultChecked></option>
+                    {verseOptionsList}
+                  </Form.Control>
+                </td>
+                <td style={{ width: "40%" }}>{verseText}</td>
+              </tr>
+            </tbody>
           </StyledTable>
         </DisplayAwardsContainer>
       </BackgroundDiv>

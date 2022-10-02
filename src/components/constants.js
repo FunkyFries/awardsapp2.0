@@ -304,6 +304,7 @@ export const characterTraits = [
   "Zeal",
 ];
 export const characterTraitsVerses = {
+  none: [""],
   Alertness: ["Mark 14:38", "1 Peter 5:8"],
   Ambition: ["Romans 12:11", "Philippians 3:13-14"],
   Analytical: ["Ecclesiastes 3:1"],
@@ -508,6 +509,7 @@ export const characterTraitsVerses = {
   Zeal: ["Romans 12:11", "1 Corinthians 15:58"],
 };
 export const bibleVerses = {
+  none: "",
   "1 Chronicles 16:33":
     "Let the trees of the forest sing, let them sing for joy before the LORD, for he comes to judge the earth.",
   "1 Corinthians 10:24":

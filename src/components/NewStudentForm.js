@@ -74,6 +74,8 @@ const NewStudentForm = ({ addStudent }) => {
           acceleratedReader: false,
           words: 0,
           pastAwards: [""],
+          characterTrait: "none",
+          characterTraitVerse: "none",
         });
       });
       console.log("Upload complete!");
