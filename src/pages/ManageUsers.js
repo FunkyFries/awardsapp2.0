@@ -54,6 +54,8 @@ const ManageUsers = () => {
         acceleratedReader: false,
         words: 0,
         pastAwards: [""],
+        characterTrait: "",
+        characterTraitVerse: "",
       });
   }
 
@@ -208,6 +210,8 @@ const ManageUsers = () => {
           acceleratedReader: false,
           words: 0,
           pastAwards: newPastAward,
+          characterTrait: "none",
+          characterTraitVerse: "none",
         });
     });
   }
