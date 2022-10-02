@@ -33,7 +33,7 @@ const WriteUps = ({ userName }) => {
       userName === "RaeLynn Zaharevich" ||
       userName === "Annie Pichot" ||
       userName === "Heidi Bekken" ||
-      userName === "Jamaica Mulhern"
+      userName === "Ryan Leach"
     ) {
       students = firebase.database().ref("classroom");
       students.once("value", function (snapshot) {

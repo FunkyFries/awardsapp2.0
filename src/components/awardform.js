@@ -200,7 +200,7 @@ const AwardForm = ({
       ) : null}
       <Form.Check
         type="checkbox"
-        label="Unshakeable Award"
+        label="Rooted Award"
         id={`SpiritualThemeAward-${id}`}
         onChange={updateSpiritualThemeAward}
         checked={spiritualThemeAward}

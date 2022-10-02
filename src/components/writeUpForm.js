@@ -21,7 +21,7 @@ const WriteUpForm = (student) => {
   } else if (student.cougarCommunityService) {
     awardName = `Cougar Community Service chosen by ${student.communityServiceChosenBy}`;
   } else if (student.spiritualTheme) {
-    awardName = `Unshakeable chosen by ${student.classroom}`;
+    awardName = `Rooted chosen by ${student.classroom}`;
   } else if (student.outstandingAchievement) {
     awardName = `Outstanding Achievement chosen by ${student.classroom}`;
   } else {

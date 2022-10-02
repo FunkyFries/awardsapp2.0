@@ -15,7 +15,10 @@ import {
   OutstandingSignatures,
   ThreeRHR,
   OutstandingStar,
+  Signature,
 } from "../styles/certstyles";
+import { schoolYear } from "./constants";
+import principalSignature from "../styles/images/signature.png";
 import Logo from "../styles/images/Logo.png";
 import wowstar from "../styles/images/wowstar.png";
 
@@ -34,8 +37,13 @@ const WowCertificate = ({ students, currentQuarter }) => {
               for the completion of their semester goal during the
             </OutstandingH5>
             <OutstandingH3>
-              {currentQuarter} of the 2021-2022 School Year
+              {currentQuarter} of the {schoolYear} School Year
             </OutstandingH3>
+            <Signature
+              style={{ bottom: "10%" }}
+              src={principalSignature}
+              alt="Annie Pichot"
+            ></Signature>
             <OutstandingSignatures>
               <ThreeRHR />
               <ThreeRHR />

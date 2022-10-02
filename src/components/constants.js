@@ -19,6 +19,8 @@ export function currentQuarter() {
   }
 }
 
+export const schoolYear = "2022-2023";
+
 export const teachers = [
   "Angel Martin",
   "Kaitlyn Miller",

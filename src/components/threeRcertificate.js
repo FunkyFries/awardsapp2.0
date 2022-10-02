@@ -24,8 +24,11 @@ import {
   ThreeRWriteupSignature,
   ThreeRWriteupTeacherDiv,
   OutstandingInnerBorder,
+  Signature,
 } from "../styles/certstyles";
+import { schoolYear } from "./constants";
 import RLogo from "../styles/images/3Rlogo.png";
+import principalSignature from "../styles/images/signature.png";
 import Header from "../styles/images/Header.png";
 import Logo from "../styles/images/Logo.png";
 import { determineTeacherSignature } from "./constants";
@@ -73,7 +76,13 @@ const ThreeRCertificate = ({ students, currentQuarter }) => {
                   </ThreeRh3>
                   <ThreeRh3>the qualities of a leader.</ThreeRh3>
                   <ThreeRh5>Frederickson Campus</ThreeRh5>
-                  <ThreeRh4>{currentQuarter} of 21-22 School Year</ThreeRh4>
+                  <ThreeRh4>
+                    {currentQuarter} of {schoolYear} School Year
+                  </ThreeRh4>
+                  <Signature
+                    src={principalSignature}
+                    alt="Annie Pichot"
+                  ></Signature>
                   <ThreeRSignatures>
                     <ThreeRHR />
                     <ThreeRHR />

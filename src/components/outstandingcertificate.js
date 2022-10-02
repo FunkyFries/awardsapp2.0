@@ -24,7 +24,10 @@ import {
   ThreeRWriteupSignature,
   ThreeRWriteupTeacherDiv,
   ThreeRh5,
+  Signature,
 } from "../styles/certstyles";
+import { schoolYear } from "./constants";
+import principalSignature from "../styles/images/signature.png";
 import Logo from "../styles/images/Logo.png";
 import star from "../styles/images/star.png";
 import { determineTeacherSignature } from "./constants";
@@ -46,8 +49,13 @@ const OutstandingCertificate = ({ students, currentQuarter }) => {
                   For outstanding achievement during the
                 </OutstandingH5>
                 <OutstandingH3>
-                  {currentQuarter} of the 2021-2022 School Year
+                  {currentQuarter} of the {schoolYear} School Year
                 </OutstandingH3>
+                <Signature
+                  style={{ bottom: "12.5%" }}
+                  src={principalSignature}
+                  alt="Annie Pichot"
+                ></Signature>
                 <OutstandingSignatures>
                   <ThreeRHR />
                   <ThreeRHR />
