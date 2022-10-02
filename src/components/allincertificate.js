@@ -22,9 +22,12 @@ import {
   ThreeRWriteupSignature,
   ThreeRWriteupTeacherDiv,
   ThreeRh5,
+  Signature,
 } from "../styles/certstyles";
-import unshakeableLogo from "../styles/images/unshakeablealt.png";
+import { schoolYear } from "./constants";
+import rootedLogo from "../styles/images/rootedlogo.png";
 import Logo from "../styles/images/Logo.png";
+import principalSignature from "../styles/images/signature.png";
 import { determineTeacherSignature } from "./constants";
 
 const AllInCertificate = ({ students, currentQuarter }) => {
@@ -35,20 +38,22 @@ const AllInCertificate = ({ students, currentQuarter }) => {
           <ThreeRContainer style={{ flexWrap: "wrap" }}>
             <OutstandingOuterBorder>
               <OutstandingInnerBorder style={{ width: "100%" }}>
+                <AllInLogo src={rootedLogo} alt="Rooted Logo" />
                 <AllInContainer>
-                  <AllInH5 style={{ color: "#000" }}>
-                    Frederickson Elementary
-                  </AllInH5>
-                  <AllInLogo src={unshakeableLogo} alt="Unshakeable Logo" />
-                  <AllInH5>is hereby granted to</AllInH5>
+                  <AllInH5 style={{}}>is hereby granted to</AllInH5>
                   <ThreeRh2>{student.name}</ThreeRh2>
                   <AllInH5>
                     for exemplifying the CCS Spiritual Theme during the
                   </AllInH5>
                   <ThreeRh4 style={{ paddingTop: "2rem" }}>
-                    {currentQuarter} of the 2021-2022 School Year
+                    {currentQuarter} of the {schoolYear} School Year
                   </ThreeRh4>
                 </AllInContainer>
+                <Signature
+                  style={{ bottom: "10%" }}
+                  src={principalSignature}
+                  alt="Annie Pichot"
+                ></Signature>
                 <ThreeRSignatures style={{ width: "100%" }}>
                   <ThreeRHR />
                   <ThreeRHR />
@@ -67,9 +72,9 @@ const AllInCertificate = ({ students, currentQuarter }) => {
             <ThreeRLogoContainer>
               <ThreeRLogoImage src={Logo} alt="CCS Logo" />
             </ThreeRLogoContainer>
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", width: "100%" }}>
               <ThreeRWriteupTitle style={{ width: "100%" }}>
-                Unshakeable Award
+                Rooted Award
               </ThreeRWriteupTitle>
               <ThreeRh3 style={{ width: "100%" }}>{student.name}</ThreeRh3>
               <ThreeRWriteup>{student.threeRWriteup}</ThreeRWriteup>

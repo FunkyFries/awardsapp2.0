@@ -11,6 +11,7 @@ import {
   ThreeRh5,
   TerrificH1,
 } from "../styles/certstyles";
+import { schoolYear } from "./constants";
 import terrificKidLogo from "../styles/images/terrifickidlogo.png";
 import { determineSpecialistSignature } from "./constants";
 
@@ -35,7 +36,7 @@ const TerrificKidCertificate = ({ students, currentQuarter }) => {
                 fontFamily: "Noto Sans",
               }}
             >
-              {currentQuarter} 2021 - 2022
+              {currentQuarter} {schoolYear}
             </ThreeRWriteupTitle>
             <div style={{ width: "100%" }}>
               <ThreeRh3>{student.name}</ThreeRh3>

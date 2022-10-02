@@ -31,17 +31,17 @@ const Awards = ({ userName }) => {
   const [userInfo, setUserInfo] = useState({});
   const [collapsed, setCollapsed] = useState({
     "Angel Martin": true,
-    "Kaitlyn Johnson": true,
+    "Kaitlyn Miller": true,
     "Jamie Estep": true,
-    "Kristal Weber": true,
+    "Janna White": true,
     "Annalisa Lang": true,
-    "Kellie Terpstra": true,
+    "Christine DeWaal": true,
     "Kim Pederson": true,
-    "Trista Haberman": true,
-    "Claude Kranik": true,
     "Kabrina Kidd": true,
+    "Claude Kranik": true,
     "Nathan Lenhart": true,
     "Michelle Medina": true,
+    "Tammy Akins": true,
     "Kristin Helle": true,
     "Kelly Kidd": true,
   });
@@ -77,11 +77,11 @@ const Awards = ({ userName }) => {
     let students;
     if (
       specialists.includes(userName) ||
+      userName === "Ryan Leach" ||
       userName === "Lydia Raab" ||
       userName === "RaeLynn Zaharevich" ||
       userName === "Annie Pichot" ||
-      userName === "Heidi Bekken" ||
-      userName === "Jamaica Mulhern"
+      userName === "Heidi Bekken"
     ) {
       students = firebase.database().ref("classroom");
       students.on("value", function (snapshot) {

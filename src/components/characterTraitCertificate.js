@@ -18,7 +18,7 @@ import {
   SpiritualHr,
 } from "../styles/certstyles";
 import { elcStudents } from "./constants";
-import unshakeableLogo from "../styles/images/unshakeablealt.png";
+import rootedLogo from "../styles/images/rootedlogo.png";
 import Logo from "../styles/images/Logo.png";
 
 const SpiritualTraitCertificate = ({ name, trait, verse, verseText }) => {
@@ -38,9 +38,9 @@ const SpiritualTraitCertificate = ({ name, trait, verse, verseText }) => {
                   </i>
                 </SpiritualTraitTitle>
                 <AllInLogo
-                  style={{ paddingTop: "2rem", paddingBottom: "1rem" }}
-                  src={unshakeableLogo}
-                  alt="Unshakeable Logo"
+                  style={{ paddingTop: "0rem", paddingBottom: "1rem" }}
+                  src={rootedLogo}
+                  alt="Rooted Logo"
                 />
                 <SpiritualHr></SpiritualHr>
                 <SpiritualTraitName>{name}</SpiritualTraitName>

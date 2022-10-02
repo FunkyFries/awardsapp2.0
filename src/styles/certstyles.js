@@ -333,11 +333,9 @@ export const AllInH1 = styled.h1`
 `;
 
 export const AllInLogo = styled.img`
-  width: 90%;
+  width: 60%;
   display: flex;
-  text-align: center;
-  margin: 0 auto;
-  padding-top: 4rem;
+  margin-left: 6rem;
   padding-bottom: 2rem;
 `;
 
@@ -346,7 +344,6 @@ export const AllInContainer = styled.div`
   margin: 0 auto;
   flex-direction: column;
   text-align: center;
-  padding-top: 4rem;
 `;
 
 export const AllInCCS = styled.img`
@@ -461,4 +458,11 @@ export const PromotionH1 = styled.h1`
   text-align: center;
   margin: 0;
   font-family: "Libre Baskerville", serif;
+`;
+
+export const Signature = styled.img`
+  width: 20%;
+  left: 20%;
+  bottom: 15%;
+  position: absolute;
 `;

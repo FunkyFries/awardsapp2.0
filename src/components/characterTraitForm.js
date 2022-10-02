@@ -11,7 +11,6 @@ import {
   StyledTable,
 } from "../styles/displayawardstyles";
 import TraitCertificate from "../components/characterTraitCertificate";
-import "firebase/database";
 
 const TraitForm = ({ name }) => {
   const [characterTrait, setCharacterTrait] = useState("");
