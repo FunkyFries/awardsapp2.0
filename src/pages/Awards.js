@@ -31,7 +31,7 @@ const Awards = ({ userName }) => {
   const [userInfo, setUserInfo] = useState({});
   const [collapsed, setCollapsed] = useState({
     "Angel Martin": true,
-    "Kaitlyn Miller": true,
+    "Kaitlyn Johnson": true,
     "Jamie Estep": true,
     "Janna White": true,
     "Annalisa Lang": true,
@@ -42,7 +42,7 @@ const Awards = ({ userName }) => {
     "Nathan Lenhart": true,
     "Michelle Medina": true,
     "Tammy Akins": true,
-    "Kristin Helle": true,
+    "Kellie Terpstra": true,
     "Kelly Kidd": true,
   });
   let StudentCards = {};
