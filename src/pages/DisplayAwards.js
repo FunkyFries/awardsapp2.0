@@ -100,7 +100,7 @@ const DisplayAwards = ({ userName }) => {
 
   const sixthStudents = arrayOfStudents.filter(
     (student) =>
-      student.classroom === "Kristin Helle" ||
+      student.classroom === "Kellie Terpstra" ||
       student.classroom === "Kelly Kidd"
   );
 

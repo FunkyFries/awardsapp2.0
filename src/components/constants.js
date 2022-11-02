@@ -23,7 +23,7 @@ export const schoolYear = "2022-2023";
 
 export const teachers = [
   "Angel Martin",
-  "Kaitlyn Miller",
+  "Kaitlyn Johnson",
   "Jamie Estep",
   "Janna White",
   "Annalisa Lang",
@@ -34,13 +34,13 @@ export const teachers = [
   "Nathan Lenhart",
   "Michelle Medina",
   "Tammy Akins",
-  "Kristin Helle",
+  "Kellie Terpstra",
   "Kelly Kidd",
 ];
 
 export const primaryTeachers = [
   "Angel Martin",
-  "Kaitlyn Miller",
+  "Kaitlyn Johnson",
   "Jamie Estep",
   "Janna White",
   "Annalisa Lang",
@@ -54,11 +54,11 @@ export const intermediateTeachers = [
   "Nathan Lenhart",
   "Michelle Medina",
   "Tammy Akins",
-  "Kristin Helle",
+  "Kellie Terpstra",
   "Kelly Kidd",
 ];
 
-export const bandTeachers = ["Kelly Kidd", "Kristin Helle"];
+export const bandTeachers = ["Kelly Kidd", "Kellie Terpstra"];
 
 export const recessSpecialists = "Mrs. Raab & Mrs. Zaharevich";
 
@@ -72,7 +72,7 @@ export const specialists = [
 ];
 
 export function determineGrade(classroom) {
-  if (classroom === "Angel Martin" || classroom === "Kaitlyn Miller") {
+  if (classroom === "Angel Martin" || classroom === "Kaitlyn Johnson") {
     return "Kindergarten";
   } else if (classroom === "Janna White" || classroom === "Jamie Estep") {
     return "First Grade";
@@ -84,7 +84,7 @@ export function determineGrade(classroom) {
     return "Fourth Grade";
   } else if (classroom === "Michelle Medina" || classroom === "Tammy Akins") {
     return "Fifth Grade";
-  } else if (classroom === "Kelly Kidd" || classroom === "Kristin Helle") {
+  } else if (classroom === "Kelly Kidd" || classroom === "Kellie Terpstra") {
     return "Sixth Grade";
   }
 }
@@ -119,8 +119,8 @@ export function determineTeacherSignature(teacher) {
       return "Mrs. Medina";
     case "Kelly Kidd":
       return "Mrs. Kidd";
-    case "Kristin Helle":
-      return "Mrs. Helle";
+    case "Kellie Terpstra":
+      return "Ms. Terpstra";
     default:
       console.log(`Sorry, ${teacher} not found.`);
       break;
