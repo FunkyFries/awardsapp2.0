@@ -281,7 +281,7 @@ const AwardForm = ({
         id={`AR-${id}`}
         onChange={updateAcceleratedReader}
         checked={acceleratedReader}
-        disabled={userName !== "Angela Tiegs" || role !== "admin"}
+        disabled={userName !== "Angela Tiegs" && role !== "admin"}
       ></Form.Check>
       <Modal
         show={showARModal}
