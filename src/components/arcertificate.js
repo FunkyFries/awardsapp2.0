@@ -12,10 +12,12 @@ import {
   HR,
   OutstandingOuterBorder,
   OutstandingInnerBorder,
+  Signature,
   ThreeRContainer,
 } from "../styles/certstyles";
 import { determineGrade } from "./constants";
 import Logo from "../styles/images/Logo.png";
+import principalSignature from "../styles/images/signature.png";
 
 const ArCertificate = ({ students, currentQuarter }) => {
   const certs = students.map((student) => {
@@ -33,8 +35,8 @@ const ArCertificate = ({ students, currentQuarter }) => {
                 <H4>presented to</H4>
                 <H2>{student.name}</H2>
                 <H3>
-                  on this 10th day of June, 2022 for reading {formattedWords}{" "}
-                  words in the {currentQuarter.toLowerCase()}!
+                  on this 16th day of November, 2022 for reading{" "}
+                  {formattedWords} words in the {currentQuarter.toLowerCase()}!
                 </H3>
                 <H3>The most in {determineGrade(student.classroom)}!</H3>
                 <Img
@@ -42,6 +44,10 @@ const ArCertificate = ({ students, currentQuarter }) => {
                   src={Logo}
                   alt="CCS Logo"
                 />
+                <Signature
+                  src={principalSignature}
+                  alt="Annie Pichot"
+                ></Signature>
                 <Signatures>
                   <HR></HR>
                   <HR></HR>

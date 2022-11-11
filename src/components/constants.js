@@ -97,7 +97,7 @@ export function determineTeacherSignature(teacher) {
     case "Angel Martin":
       return "Mrs. Martin";
     case "Kaitlyn Johnson":
-      return "Mrs. Johnson";
+      return "Mrs. Parker";
     case "Kaitlyn Miller":
       return "Mrs. Miller";
     case "Jamie Estep":
@@ -109,7 +109,7 @@ export function determineTeacherSignature(teacher) {
     case "Annalisa Lang":
       return "Ms. Lang";
     case "Kabrina Kidd":
-      return "Mrs. Kidd";
+      return "Ms. Kidd";
     case "Kim Pederson":
       return "Ms. Pederson";
     case "Claude Kranik":

@@ -48,12 +48,11 @@ const AllInCertificate = ({ students, currentQuarter }) => {
                   <ThreeRh4 style={{ paddingTop: "2rem" }}>
                     {currentQuarter} of the {schoolYear} School Year
                   </ThreeRh4>
+                  <Signature
+                    src={principalSignature}
+                    alt="Annie Pichot"
+                  ></Signature>
                 </AllInContainer>
-                <Signature
-                  style={{ bottom: "10%" }}
-                  src={principalSignature}
-                  alt="Annie Pichot"
-                ></Signature>
                 <ThreeRSignatures style={{ width: "100%" }}>
                   <ThreeRHR />
                   <ThreeRHR />
