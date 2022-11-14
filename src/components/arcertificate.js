@@ -45,6 +45,7 @@ const ArCertificate = ({ students, currentQuarter }) => {
                   alt="CCS Logo"
                 />
                 <Signature
+                  style={{ marginBottom: "-3rem" }}
                   src={principalSignature}
                   alt="Annie Pichot"
                 ></Signature>
