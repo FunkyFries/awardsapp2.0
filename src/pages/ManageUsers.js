@@ -175,7 +175,7 @@ const ManageUsers = () => {
       if (student.threeR !== "none") {
         newPastAward.push(student.threeR);
       } else if (student.spiritualTheme) {
-        newPastAward.push("Unshakeable");
+        newPastAward.push("Rooted");
       } else if (student.terrificKid) {
         newPastAward.push(
           `Terrific Kid chosen by ${student.terrificKidChosenBy}`
