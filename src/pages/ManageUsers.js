@@ -153,20 +153,20 @@ const ManageUsers = () => {
   ));
 
   function resetQuarter() {
-    let awardStudents = combinedStudents.filter(
-      (student) =>
-        student.threeR !== "none" ||
-        student.spiritualTheme ||
-        student.terrificKid ||
-        student.outstandingAchievement ||
-        student.cougarCommunityService ||
-        student.wowAward ||
-        student.acceleratedReader
-    );
+    // let awardStudents = combinedStudents.filter(
+    //   (student) =>
+    //     student.threeR !== "none" ||
+    //     student.spiritualTheme ||
+    //     student.terrificKid ||
+    //     student.outstandingAchievement ||
+    //     student.cougarCommunityService ||
+    //     student.wowAward ||
+    //     student.acceleratedReader
+    // );
 
     handleClose();
 
-    awardStudents.map((student) => {
+    combinedStudents.map((student) => {
       let newPastAward = student.pastAwards;
       if (student.pastAwards[0] === "") {
         newPastAward = [];
