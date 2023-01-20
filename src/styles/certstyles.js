@@ -462,7 +462,7 @@ export const PromotionH1 = styled.h1`
 
 export const Signature = styled.img`
   width: 20%;
-  left: 20%;
-  bottom: 15%;
-  position: absolute;
+  left: 15%;
+  margin-bottom: -2rem;
+  position: relative;
 `;

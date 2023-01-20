@@ -516,7 +516,7 @@ const DisplayAwards = ({ userName }) => {
                   onChange={() => setPrintAR(!printAR)}
                   checked={printAR}
                 />
-                <Form.Check
+                {/* <Form.Check
                   type="checkbox"
                   label="Sixth Certificates"
                   id="printSixthCertificates"
@@ -529,7 +529,7 @@ const DisplayAwards = ({ userName }) => {
                   id="printKinderCertificates"
                   onChange={() => setPrintKinder(!printKinder)}
                   checked={printKinder}
-                />
+                /> */}
                 <Form.Check
                   type="checkbox"
                   label="Awards Table"
@@ -564,7 +564,7 @@ const DisplayAwards = ({ userName }) => {
                 <th>Relationship</th>
                 <th>Respect</th>
                 <th>Responsibility</th>
-                <th>Unshakeable</th>
+                <th>Rooted</th>
                 <th>Oustanding Achievement</th>
                 <th colSpan={2}>Terrific Kid</th>
                 <th>Community Service</th>

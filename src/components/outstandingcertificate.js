@@ -52,7 +52,7 @@ const OutstandingCertificate = ({ students, currentQuarter }) => {
                   {currentQuarter} of the {schoolYear} School Year
                 </OutstandingH3>
                 <Signature
-                  style={{ bottom: "12.5%" }}
+                  style={{ marginBottom: "-4.5rem" }}
                   src={principalSignature}
                   alt="Annie Pichot"
                 ></Signature>

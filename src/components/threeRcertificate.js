@@ -80,6 +80,7 @@ const ThreeRCertificate = ({ students, currentQuarter }) => {
                     {currentQuarter} of {schoolYear} School Year
                   </ThreeRh4>
                   <Signature
+                    style={{ marginLeft: "-45rem" }}
                     src={principalSignature}
                     alt="Annie Pichot"
                   ></Signature>
