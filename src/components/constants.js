@@ -32,7 +32,7 @@ export const teachers = [
   "Kabrina Kidd",
   "Claude Kranik",
   "Nathan Lenhart",
-  "Michelle Medina",
+  "Kayla Sharpe",
   "Tammy Akins",
   "Kellie Terpstra",
   "Kelly Kidd",
@@ -52,7 +52,7 @@ export const intermediateTeachers = [
   "Kabrina Kidd",
   "Claude Kranik",
   "Nathan Lenhart",
-  "Michelle Medina",
+  "Kayla Sharpe",
   "Tammy Akins",
   "Kellie Terpstra",
   "Kelly Kidd",
@@ -85,7 +85,7 @@ export function determineGrade(classroom) {
     return "Third Grade";
   } else if (classroom === "Claude Kranik" || classroom === "Nathan Lenhart") {
     return "Fourth Grade";
-  } else if (classroom === "Michelle Medina" || classroom === "Tammy Akins") {
+  } else if (classroom === "Kayla Sharpe" || classroom === "Tammy Akins") {
     return "Fifth Grade";
   } else if (classroom === "Kelly Kidd" || classroom === "Kellie Terpstra") {
     return "Sixth Grade";
@@ -97,7 +97,7 @@ export function determineTeacherSignature(teacher) {
     case "Angel Martin":
       return "Mrs. Martin";
     case "Kaitlyn Johnson":
-      return "Mrs. Parker";
+      return "Mrs. Johnson";
     case "Kaitlyn Miller":
       return "Mrs. Miller";
     case "Jamie Estep":
@@ -116,8 +116,8 @@ export function determineTeacherSignature(teacher) {
       return "Mr. Kranik";
     case "Nathan Lenhart":
       return "Mr. Lenhart";
-    case "Michelle Medina":
-      return "Mrs. Medina";
+    case "Kayla Sharpe":
+      return "Mrs. Sharpe";
     case "Tammy Akins":
       return "Mrs. Akins";
     case "Kelly Kidd":

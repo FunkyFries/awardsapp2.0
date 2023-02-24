@@ -40,7 +40,7 @@ const Awards = ({ userName }) => {
     "Kabrina Kidd": true,
     "Claude Kranik": true,
     "Nathan Lenhart": true,
-    "Michelle Medina": true,
+    "Kayla Sharpe": true,
     "Tammy Akins": true,
     "Kellie Terpstra": true,
     "Kelly Kidd": true,

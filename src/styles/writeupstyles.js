@@ -12,8 +12,6 @@ export const BackgroundDiv = styled.div`
     rgba(0, 135, 112, 1) 100%
   );
   width: 100%;
-  height: 100vh;
-  overflow: auto;
 `;
 
 export const WriteUpContainer = styled(Container)`
