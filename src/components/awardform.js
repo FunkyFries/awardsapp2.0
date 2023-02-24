@@ -185,7 +185,7 @@ const AwardForm = ({
 
   return (
     <Form>
-      {(currentQuarter() === "Second Quarter" &&
+      {(currentQuarter() === "Third Quarter" &&
         primaryTeachers.indexOf(teacher) === -1) ||
       (currentQuarter() === "Fourth Quarter" &&
         primaryTeachers.indexOf(teacher) === -1) ? (
