@@ -76,10 +76,7 @@ export function determineGrade(classroom) {
     return "Kindergarten";
   } else if (classroom === "Janna White" || classroom === "Jamie Estep") {
     return "First Grade";
-  } else if (
-    classroom === "Christine DeWaal" ||
-    classroom === "Annalisa Lang"
-  ) {
+  } else if (classroom === "Christine DeWaal" || classroom === "Annalisa Lang") {
     return "Second Grade";
   } else if (classroom === "Kabrina Kidd" || classroom === "Kim Pederson") {
     return "Third Grade";
@@ -120,6 +117,8 @@ export function determineTeacherSignature(teacher) {
       return "Mrs. Sharpe";
     case "Tammy Akins":
       return "Mrs. Akins";
+    case "Michelle Medina":
+      return "Mrs. Medina";
     case "Kelly Kidd":
       return "Mrs. Kidd";
     case "Kellie Terpstra":
@@ -509,7 +508,7 @@ export const characterTraitsVerses = {
   Zeal: ["Romans 12:11", "1 Corinthians 15:58"],
 };
 export const bibleVerses = {
-  none: "",
+  none:"",
   "1 Chronicles 16:33":
     "Let the trees of the forest sing, let them sing for joy before the LORD, for he comes to judge the earth.",
   "1 Corinthians 10:24":
