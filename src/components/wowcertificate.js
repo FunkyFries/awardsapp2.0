@@ -40,7 +40,7 @@ const WowCertificate = ({ students, currentQuarter }) => {
               {currentQuarter} of the {schoolYear} School Year
             </OutstandingH3>
             <Signature
-              style={{ bottom: "10%" }}
+              style={{ marginBottom: "-4.5rem" }}
               src={principalSignature}
               alt="Annie Pichot"
             ></Signature>
