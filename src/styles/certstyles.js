@@ -415,8 +415,8 @@ export const SpiritualTrait = styled.h2`
 export const SpiritualTraitVerse = styled.h3`
   font-family: "Pinyon Script", cursive;
   font-size: 1.5rem;
-  width: 97%;
-  margin: 0 auto;
+  // width: 97%;
+  // margin: 0 auto;
   color: rgb(13, 39, 66);
 `;
 

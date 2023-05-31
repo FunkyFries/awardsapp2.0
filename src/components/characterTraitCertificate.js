@@ -21,24 +21,36 @@ import { elcStudents } from "./constants";
 import rootedLogo from "../styles/images/rootedlogo.png";
 import Logo from "../styles/images/Logo.png";
 
-const SpiritualTraitCertificate = ({ name, trait, verse, verseText }) => {
+const SpiritualTraitCertificate = ({
+  name,
+  trait,
+  verse,
+  verseText,
+  classroom,
+}) => {
   return (
     <PrintDiv key={`${name}characterTrait`} className="d-none d-print-block">
       <CertDiv>
         <ThreeRContainer style={{ flexWrap: "wrap" }}>
           <OutstandingOuterBorder>
-            <OutstandingInnerBorder>
+            <OutstandingInnerBorder style={{ width: "100%" }}>
               <AllInContainer style={{ paddingTop: "1rem" }}>
                 <SpiritualTraitTitle>
                   Cascade Christian Schools{" "}
                   <i>
-                    {elcStudents.includes(name)
+                    {classroom === "Omary Velez-Caraballo" ||
+                    classroom === "Toni DePoister"
                       ? "Frederickson ELC"
                       : "Frederickson Elementary"}
                   </i>
                 </SpiritualTraitTitle>
                 <AllInLogo
-                  style={{ paddingTop: "0rem", paddingBottom: "1rem" }}
+                  style={{
+                    paddingTop: "0rem",
+                    paddingBottom: "1rem",
+                    width: "40%",
+                    margin: "0 auto",
+                  }}
                   src={rootedLogo}
                   alt="Rooted Logo"
                 />
@@ -66,7 +78,10 @@ const SpiritualTraitCertificate = ({ name, trait, verse, verseText }) => {
               </ThreeRSignatures>
               <ThreeRSignatures style={{ width: "100%" }}>
                 <h6>
-                  {elcStudents.includes(name) ? "Supervisor" : "Principal"}
+                  {classroom === "Omary Velez-Caraballo" ||
+                  classroom === "Toni DePoister"
+                    ? "Supervisor"
+                    : "Principal"}
                 </h6>
                 <h6>Teacher</h6>
               </ThreeRSignatures>

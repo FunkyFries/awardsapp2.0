@@ -169,7 +169,7 @@ const ManageUsers = () => {
     combinedStudents.map((student) => {
       let newPastAward = student.pastAwards;
       if (student.pastAwards[0] === "") {
-        newPastAward = [];
+        newPastAward = [""];
       }
 
       if (student.threeR !== "none") {

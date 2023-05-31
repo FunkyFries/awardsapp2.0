@@ -40,10 +40,17 @@ const TraitForm = ({
       setVerseText("");
     }
 
-    update(ref(database, `classroom/${teacher}/${id}`), {
-      characterTrait: e.target.value,
-      characterTraitVerse: "none",
-    });
+    if (teacher !== "Omary Velez-Caraballo" && teacher !== "Toni DePoister") {
+      update(ref(database, `classroom/${teacher}/${id}`), {
+        characterTrait: e.target.value,
+        characterTraitVerse: "none",
+      });
+    } else {
+      update(ref(database, `elc/${teacher}/${id}`), {
+        characterTrait: e.target.value,
+        characterTraitVerse: "none",
+      });
+    }
   }
 
   function handleVerseChosen(e) {
@@ -54,9 +61,16 @@ const TraitForm = ({
     } else {
       setVerseText("");
     }
-    update(ref(database, `classroom/${teacher}/${id}`), {
-      characterTraitVerse: e.target.value,
-    });
+
+    if (teacher !== "Omary Velez-Caraballo" && teacher !== "Toni DePoister") {
+      update(ref(database, `classroom/${teacher}/${id}`), {
+        characterTraitVerse: e.target.value,
+      });
+    } else {
+      update(ref(database, `elc/${teacher}/${id}`), {
+        characterTraitVerse: e.target.value,
+      });
+    }
   }
 
   const traitOptions = characterTraits.map((trait) => (
@@ -77,6 +91,7 @@ const TraitForm = ({
         verse={verseChosen}
         trait={characterTrait}
         verseText={verseText}
+        classroom={teacher}
       ></TraitCertificate>
       <BackgroundDiv className="d-print-none">
         <DisplayAwardsContainer>

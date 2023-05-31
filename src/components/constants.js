@@ -32,7 +32,7 @@ export const teachers = [
   "Kabrina Kidd",
   "Claude Kranik",
   "Nathan Lenhart",
-  "Kayla Sharpe",
+  "Nicole Ssebagala",
   "Tammy Akins",
   "Kellie Terpstra",
   "Kelly Kidd",
@@ -52,7 +52,7 @@ export const intermediateTeachers = [
   "Kabrina Kidd",
   "Claude Kranik",
   "Nathan Lenhart",
-  "Kayla Sharpe",
+  "Nicole Ssebagala",
   "Tammy Akins",
   "Kellie Terpstra",
   "Kelly Kidd",
@@ -76,13 +76,16 @@ export function determineGrade(classroom) {
     return "Kindergarten";
   } else if (classroom === "Janna White" || classroom === "Jamie Estep") {
     return "First Grade";
-  } else if (classroom === "Christine DeWaal" || classroom === "Annalisa Lang") {
+  } else if (
+    classroom === "Christine DeWaal" ||
+    classroom === "Annalisa Lang"
+  ) {
     return "Second Grade";
   } else if (classroom === "Kabrina Kidd" || classroom === "Kim Pederson") {
     return "Third Grade";
   } else if (classroom === "Claude Kranik" || classroom === "Nathan Lenhart") {
     return "Fourth Grade";
-  } else if (classroom === "Kayla Sharpe" || classroom === "Tammy Akins") {
+  } else if (classroom === "Nicole Ssebagala" || classroom === "Tammy Akins") {
     return "Fifth Grade";
   } else if (classroom === "Kelly Kidd" || classroom === "Kellie Terpstra") {
     return "Sixth Grade";
@@ -95,8 +98,6 @@ export function determineTeacherSignature(teacher) {
       return "Mrs. Martin";
     case "Kaitlyn Johnson":
       return "Mrs. Johnson";
-    case "Kaitlyn Miller":
-      return "Mrs. Miller";
     case "Jamie Estep":
       return "Mrs. Estep";
     case "Janna White":
@@ -113,8 +114,8 @@ export function determineTeacherSignature(teacher) {
       return "Mr. Kranik";
     case "Nathan Lenhart":
       return "Mr. Lenhart";
-    case "Kayla Sharpe":
-      return "Mrs. Sharpe";
+    case "Nicole Ssebagala":
+      return "Ms. Ssebagala";
     case "Tammy Akins":
       return "Mrs. Akins";
     case "Michelle Medina":
@@ -508,7 +509,7 @@ export const characterTraitsVerses = {
   Zeal: ["Romans 12:11", "1 Corinthians 15:58"],
 };
 export const bibleVerses = {
-  none:"",
+  none: "",
   "1 Chronicles 16:33":
     "Let the trees of the forest sing, let them sing for joy before the LORD, for he comes to judge the earth.",
   "1 Corinthians 10:24":
