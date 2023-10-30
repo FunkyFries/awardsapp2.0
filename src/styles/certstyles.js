@@ -333,10 +333,10 @@ export const AllInH1 = styled.h1`
 `;
 
 export const AllInLogo = styled.img`
-  width: 60%;
+  width: 50%;
   display: flex;
-  margin-left: 6rem;
-  padding-bottom: 2rem;
+  margin-left: 12rem;
+  padding-bottom: 1rem;
 `;
 
 export const AllInContainer = styled.div`

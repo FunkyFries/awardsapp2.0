@@ -25,7 +25,7 @@ import {
   Signature,
 } from "../styles/certstyles";
 import { schoolYear } from "./constants";
-import rootedLogo from "../styles/images/rootedlogo.png";
+import seekGodLogo from "../styles/images/seekgodlogo.png";
 import Logo from "../styles/images/Logo.png";
 import principalSignature from "../styles/images/signature.png";
 import { determineTeacherSignature } from "./constants";
@@ -38,7 +38,7 @@ const AllInCertificate = ({ students, currentQuarter }) => {
           <ThreeRContainer style={{ flexWrap: "wrap" }}>
             <OutstandingOuterBorder>
               <OutstandingInnerBorder style={{ width: "100%" }}>
-                <AllInLogo src={rootedLogo} alt="Rooted Logo" />
+                <AllInLogo src={seekGodLogo} alt="Seek God Logo" />
                 <AllInContainer>
                   <AllInH5 style={{}}>is hereby granted to</AllInH5>
                   <ThreeRh2>{student.name}</ThreeRh2>
@@ -73,7 +73,7 @@ const AllInCertificate = ({ students, currentQuarter }) => {
             </ThreeRLogoContainer>
             <div style={{ display: "flex", flexWrap: "wrap", width: "100%" }}>
               <ThreeRWriteupTitle style={{ width: "100%" }}>
-                Rooted Award
+                Seeking God Award
               </ThreeRWriteupTitle>
               <ThreeRh3 style={{ width: "100%" }}>{student.name}</ThreeRh3>
               <ThreeRWriteup>{student.threeRWriteup}</ThreeRWriteup>
