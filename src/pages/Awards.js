@@ -37,13 +37,13 @@ const Awards = ({ userName }) => {
     "Annalisa Lang": true,
     "Christine DeWaal": true,
     "Kim Pederson": true,
-    "Kabrina Kidd": true,
+    "Amanda Hill": true,
     "Claude Kranik": true,
-    "Nathan Lenhart": true,
-    "Nicole Ssebagala": true,
+    "Taylor Lott": true,
+    "Sarah Gill": true,
     "Tammy Akins": true,
     "Kellie Terpstra": true,
-    "Kelly Kidd": true,
+    "Donna Brooks": true,
   });
   let StudentCards = {};
   const [disableRespect, setDisableRespect] = useState(false);
