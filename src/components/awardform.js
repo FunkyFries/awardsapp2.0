@@ -183,8 +183,6 @@ const AwardForm = ({
     <li key={(award, i)}>{award}</li>
   ));
 
-  console.log(currentQuarter());
-
   return (
     <Form>
       {(currentQuarter() === "Third Quarter" &&

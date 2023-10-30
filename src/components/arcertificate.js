@@ -35,8 +35,8 @@ const ArCertificate = ({ students, currentQuarter }) => {
                 <H4>presented to</H4>
                 <H2>{student.name}</H2>
                 <H3>
-                  on this 8th day of February, 2023 for reading {formattedWords}{" "}
-                  words in the {currentQuarter.toLowerCase()}!
+                  on this 15th day of November, 2023 for reading{" "}
+                  {formattedWords} words in the {currentQuarter.toLowerCase()}!
                 </H3>
                 <H3>The most in {determineGrade(student.classroom)}!</H3>
                 <Img

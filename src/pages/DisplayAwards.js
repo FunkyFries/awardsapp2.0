@@ -168,18 +168,32 @@ const DisplayAwards = ({ userName }) => {
     let terrificKids = terrificStudents.filter(
       (student) => student.classroom === teacher
     );
+    console.log(terrificKids.length);
     let terrific = (
       <>
         <td></td>
         <td></td>
+        <td></td>
+        <td></td>
       </>
     );
+    if (terrificKids.length === 4) {
+      terrific = (
+        <>
+          <td>{terrificKids[0].name}</td>
+          <td>{terrificKids[1].name}</td>
+          <td>{terrificKids[2].name}</td>
+          <td>{terrificKids[3].name}</td>
+        </>
+      );
+    }
     if (terrificKids.length === 3) {
       terrific = (
         <>
           <td>{terrificKids[0].name}</td>
           <td>{terrificKids[1].name}</td>
           <td>{terrificKids[2].name}</td>
+          <td></td>
         </>
       );
     }
@@ -188,12 +202,16 @@ const DisplayAwards = ({ userName }) => {
         <>
           <td>{terrificKids[0].name}</td>
           <td>{terrificKids[1].name}</td>
+          <td></td>
+          <td></td>
         </>
       );
     } else if (terrificKids.length === 1) {
       terrific = (
         <>
           <td>{terrificKids[0].name}</td>
+          <td></td>
+          <td></td>
           <td></td>
         </>
       );
@@ -336,6 +354,32 @@ const DisplayAwards = ({ userName }) => {
         </>
       );
       if (intermediate.length === 1) {
+        intermediateColumn = (
+          <>
+            <td>{intermediate[0].name}</td>
+          </>
+        );
+      }
+
+      if (primary.length === 2) {
+        primaryColumn = (
+          <>
+            <td>{primary[0].name}</td>
+          </>
+        );
+        intermediateColumn = (
+          <>
+            <td>{primary[1].name}</td>
+          </>
+        );
+      }
+
+      if (intermediate.length === 2) {
+        primaryColumn = (
+          <>
+            <td>{intermediate[1].name}</td>
+          </>
+        );
         intermediateColumn = (
           <>
             <td>{intermediate[0].name}</td>
@@ -566,7 +610,7 @@ const DisplayAwards = ({ userName }) => {
                 <th>Responsibility</th>
                 <th>Rooted</th>
                 <th>Oustanding Achievement</th>
-                <th colSpan={2}>Terrific Kid</th>
+                <th colSpan={4}>Terrific Kid</th>
                 <th>Community Service</th>
                 <th>AR</th>
               </tr>
