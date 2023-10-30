@@ -81,7 +81,8 @@ const Awards = ({ userName }) => {
       userName === "Lydia Raab" ||
       userName === "RaeLynn Zaharevich" ||
       userName === "Annie Pichot" ||
-      userName === "Heidi Bekken"
+      userName === "Kelly Rochon" ||
+      userName === "Amanda Cunningham"
     ) {
       students = firebase.database().ref("classroom");
       students.on("value", function (snapshot) {
