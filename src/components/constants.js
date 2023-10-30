@@ -10,9 +10,9 @@ import AwardForm from "../components/awardform";
 export function currentQuarter() {
   if (moment().isBefore("2023-11-11")) {
     return "First Quarter";
-  } else if (moment().isBefore("2023-02-10")) {
+  } else if (moment().isBefore("2024-02-10")) {
     return "Second Quarter";
-  } else if (moment().isBefore("2023-04-15")) {
+  } else if (moment().isBefore("2024-04-15")) {
     return "Third Quarter";
   } else {
     return "Fourth Quarter";
@@ -29,13 +29,13 @@ export const teachers = [
   "Annalisa Lang",
   "Christine DeWaal",
   "Kim Pederson",
-  "Kabrina Kidd",
+  "Amanda Hill",
   "Claude Kranik",
-  "Nathan Lenhart",
-  "Nicole Ssebagala",
+  "Taylor Lott",
+  "Sarah Gill",
   "Tammy Akins",
   "Kellie Terpstra",
-  "Kelly Kidd",
+  "Donna Brooks",
 ];
 
 export const primaryTeachers = [
@@ -49,13 +49,13 @@ export const primaryTeachers = [
 
 export const intermediateTeachers = [
   "Kim Pederson",
-  "Kabrina Kidd",
+  "Amanda Hill",
   "Claude Kranik",
-  "Nathan Lenhart",
-  "Nicole Ssebagala",
+  "Taylor Lott",
+  "Sarah Gill",
   "Tammy Akins",
   "Kellie Terpstra",
-  "Kelly Kidd",
+  "Donna Brooks",
 ];
 
 export const bandTeachers = ["Donna Brooks", "Kellie Terpstra"];
