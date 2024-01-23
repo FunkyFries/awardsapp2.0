@@ -608,7 +608,7 @@ const DisplayAwards = ({ userName }) => {
                 <th>Relationship</th>
                 <th>Respect</th>
                 <th>Responsibility</th>
-                <th>Rooted</th>
+                <th>Seeking God</th>
                 <th>Oustanding Achievement</th>
                 <th colSpan={4}>Terrific Kid</th>
                 <th>Community Service</th>

@@ -8,7 +8,7 @@ import {
 import AwardForm from "../components/awardform";
 
 export function currentQuarter() {
-  if (moment().isBefore("2023-11-11")) {
+  if (moment().isBefore("2023-11-25")) {
     return "First Quarter";
   } else if (moment().isBefore("2024-02-10")) {
     return "Second Quarter";
@@ -134,8 +134,8 @@ export function determineSpecialistSignature(teacher) {
       return "Ms. Kidd";
     case "Bre Jeffries":
       return "Mrs. Jeffries";
-    case "Kirsten Howard":
-      return "Miss Kiki";
+    case "Hedy Escobar":
+      return "Mrs. Escobar";
     default:
       console.log(`Sorry ${teacher} not found.`);
       break;

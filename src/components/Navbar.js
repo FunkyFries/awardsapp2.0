@@ -30,7 +30,7 @@ const NavBar = ({ user }) => {
           <Nav.Link href="/awards">Awards</Nav.Link>
           <Nav.Link href="/writeups">Writeups</Nav.Link>
           <Nav.Link href="/displayawards">Awards Table</Nav.Link>
-          <Nav.Link href="/charactertraits">Character Traits</Nav.Link>
+          {/* <Nav.Link href="/charactertraits">Character Traits</Nav.Link> */}
           {user === "admin" ? (
             <Nav.Link href="/manageusers">Manage Users</Nav.Link>
           ) : null}
